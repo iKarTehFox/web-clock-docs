@@ -1,8 +1,7 @@
 ---
 title: Installation
 layout: default
-parent: Docs
-nav_order: 1
+nav_order: 2
 ---
 # Installation
 {: .no_toc}
