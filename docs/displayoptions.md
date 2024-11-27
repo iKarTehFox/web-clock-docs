@@ -113,3 +113,5 @@ export function logConsole(message: string, type: string = 'debug'):void {
 ```
 
 The logic ensures that debug logging must be enabled to log DEBUG and <span style="color: #0DCAF0;">INFO</span> messages, but <span style="color: #FF5449;">ERROR</span> and <span style="color: #FE8D59;">WARNING</span> messages will always be logged.
+
+![A screenshot of the console with debug logging enabled. First, Iconify icons are preloaded, then a preset is manually loaded from the menu.](/assets/images/docs-Features/displayoptions/debug-console.png)
