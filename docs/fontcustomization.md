@@ -27,6 +27,8 @@ As for setting a custom font, you must specify the exact filename of the font fi
 
 **Note:** Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embeddded devices.
 
+<hr>
+
 ### Font Style and Weight
 The Font Style and Font Weight radio buttons let you change... well—*the font style and weight*! You can change between Regular and Italic styles, and between Light, Normal, and Bold weights.
 
@@ -52,6 +54,8 @@ Here's a table of each built-in font and their supported font styling and weight
 | Nanum Brush Script | ✅ | ✅ | ❌ | ✅ | ✅ |
 | Pangolin | ✅ | ✅ | ❌ | ✅ | ✅ |
 
+<hr>
+
 ### Font Size
 The Font Size dropdown menu lets you change the font size of the clock. This is useful for very large or small displays, as well as **to prevent the clock from being cut off at the edges of the screen** (such as when using the Words Display System).
 
@@ -62,6 +66,8 @@ The sizes are in measures of viewport width, so the larger the screen, the large
 | Huge (18vw) | Smaller (6vw) |
 | --- | --- |
 | ![A screenshot of the clock with the "Huge (18vw)" font size option selected.](/assets/images/docs-Features/fontcustomization/fontsize-huge.png) | ![A screenshot of the clock with the "Smaller (6vw)" font size option selected.](/assets/images/docs-Features/fontcustomization/fontsize-smaller.png) |
+
+<hr>
 
 ### Text Effects
 The included text effects let you add a shadow or colored stroke outline to the time and date.

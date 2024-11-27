@@ -70,6 +70,8 @@ menu.themeradio.forEach((radio) => {
 });
 ```
 
+<hr>
+
 ### Panel Visibility
 This checkbox toggles visiblity of the panel buttons, including the buttons to open the countdown, stopwatch, and menu panels.
 
@@ -78,6 +80,8 @@ This checkbox toggles visiblity of the panel buttons, including the buttons to o
 | Panel buttons visible | Panel buttons hidden |
 | --- | --- |
 | ![A screenshop of the page with Panel Visibility enabled.](/assets/images/docs-Features/displayoptions/panelvisibility-on.png) | ![A screenshop of the page with Panel Visibility disabled.](/assets/images/docs-Features/displayoptions/panelvisibility-off.png) |
+
+<hr>
 
 ### Tab Title
 If you don't like the dynamic tab title, where it updates along with the time, you can disable it here. Additionally, the favicon also changes to a clock icon depending on the current hour. By default, the Tab Title is enabled.
