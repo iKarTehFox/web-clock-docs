@@ -8,7 +8,7 @@ nav_order: 3
 {: .no_toc }
 The Date and Time section in the menu panel allows you to change how the clock looks and behaves.
 
-![A screenshot of the Date and Time panel item, highlighted in red and with a tooltip showing with the text "Date and Time"](/assets/images/docs-Features/datetime/datetime.png)
+![A screenshot of the Date and Time menu options."](/assets/images/docs-Features/datetime/datetime.png)
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -30,7 +30,7 @@ When using the 24-hour clock mode, the AM/PM indicator is hidden.
 <hr>
 
 ### Time Zone
-The Time Zone dropdown menu allows you to change the time zone for the clock. By default, your current time zone is selected.
+Customize your clock's timezone with this dropdown menu. By default, your current time zone is selected.
 
 ![A screenshot of the Time Zone dropdown menu with "America/New York" selected](/assets/images/docs-Features/datetime/timezone.png)
 
@@ -59,7 +59,7 @@ function getTimeZonesByRegion() {
 <hr>
 
 ### Display System
-The Display System dropdown menu allows you to change how the clock is displayed, offering different radix systems, conversions, and a few experimental options.
+This menu allows you to change how the clock is displayed, offering different radix systems, conversions, and a few experimental options.
 
 ![A screenshot of the Display System dropdown menu with "Decimal (Base 10)" selected](/assets/images/docs-Features/datetime/displaysystem.png)
 
@@ -94,7 +94,7 @@ Conversions give you fun ways to display the time:
 <hr>
 
 #### Experimental...
-Experimental Display Systems are included for fun. They are coded in a non-standard, jerry-rigged way and are not guaranteed to work properly.
+These specific Display Systems are only included for fun. They are coded in a non-standard, jerry-rigged way and are not guaranteed to work properly.
 
 | Experimental Display System | Description |
 | --- | --- |
@@ -107,7 +107,7 @@ Experimental Display Systems are included for fun. They are coded in a non-stand
 <hr>
 
 ### Date Display
-The Date Display dropdown menu allows you to change the date format. Each option is localized based on your browser's locale, and updates automatically when the date changes.
+If you prefer a different date format other than the default, you can change that here. Each option is localized based on your browser's locale and updates automatically as the date changes.
 
 ![A screenshot of the Date Display dropdown menu with "Short" selected](/assets/images/docs-Features/datetime/datedisplay.png)
 
@@ -126,7 +126,7 @@ The table below lists the different tokens Luxon uses for each date format:
 <hr>
 
 ### Date Alignment
-The Date Alignment radio buttons allow you to change the alignment of the date relative to the width of the clock.
+You can change the alignment of the date relative to the clock's width. By default, the date is left aligned under the clock.
 
 ![A screenshot of the Date Alignment radio buttons with "Left" selected](/assets/images/docs-Features/datetime/datealignment.png)
 
@@ -135,9 +135,11 @@ The Date Alignment radio buttons allow you to change the alignment of the date r
 <hr>
 
 ### Border Style
-The Border Style radio buttons and dropdown menu allow you to change the style of the outline/border of the clock.
+You can set the border style of the clock to give it a sort of "frame" around the time, providing a bit of separation between the time and the date.
 
 By default, there is no border style selected. You can change the border style to "Box" or "Bottom", both of which have the "Solid", "Dashed", "Dotted", and "Double" options.
+
+**You cannot select a border style if the "seconds bar" is visible.**
 
 ![A screenshot of the Border Style radio buttons with "Box" and "Solid" selected](/assets/images/docs-Features/datetime/borderstyle.png)
 
@@ -151,7 +153,9 @@ By default, there is no border style selected. You can change the border style t
 <hr>
 
 ### Seconds Bar Visibility
-The Seconds Bar Visibility radio buttons allow you to change the visibility of the "seconds bar", a thin, animated line that runs below the clock to indicate the current progress along the minute.
+Here, you can set the visibility of the "seconds bar", a thin, animated line that runs below the clock to indicate the current progress along the minute.
+
+**You cannot enable the seconds bar if a border style is selected.**
 
 ![A screenshot of the Seconds Bar Visibility radio buttons with "Hide" selected](/assets/images/docs-Features/datetime/secondsbarvis.png)
 
@@ -159,6 +163,21 @@ The Seconds Bar Visibility radio buttons allow you to change the visibility of t
     <source src="/assets/images/docs-Features/datetime/secondsbarvis.mp4" type="video/mp4">
     <source src="/assets/images/docs-Features/datetime/secondsbarvis.webm" type="video/webm">
 </video>
+
+**How does it work?** It is simply a horizontal line with a CSS animation that changes the width of the line based on the current seconds.
+
+```ts
+// Seconds progress bar
+if (menu.secondsbarradio[0].checked) { // Check if visible, 0% if not.
+    const secBarWidth = (Number(sec) / 59) * 100;
+    dtdisplay.secondsBar.style.width = `${secBarWidth}%`;
+} else {
+    dtdisplay.secondsBar.style.width = '0%';
+}
+```
+
+The width is calculated by dividing the current seconds by 59.  
+**Why not 60**? If the number of seconds is divided by 60, the bar will never reach 100% width since a clock never displays 60, only 0-59.
 
 <hr>
 
