@@ -1,9 +1,9 @@
 ---
-title: Installation
+title: Installation Guide
 layout: default
 nav_order: 2
 ---
-# Installation
+# Installation Guide
 {: .no_toc}
 This page will guide you through the installation process. You may choose to manually build the website or download a pre-built version.
 
@@ -13,7 +13,7 @@ This page will guide you through the installation process. You may choose to man
 1. TOC
 {:toc}
 
-## Prerequisites
+## Building requirements
 - [Node.js](https://nodejs.org/)
 - Git
 - Basic CLI knowledge
