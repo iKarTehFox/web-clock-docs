@@ -9,7 +9,7 @@ nav_order: 1
 Welcome to the Online Web Clock docs!
 
 [Get Started](/docs/installation){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View on GitHub](https://github.com/ikartehfox/web-clock){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Docs GitHub](https://github.com/ikartehfox/web-clock-docs){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ## Quick Access
 
@@ -19,20 +19,11 @@ Welcome to the Online Web Clock docs!
 ## Latest Updates
 See what's new in the latest version:
 
-### v1.4.4 (YYYY-MM-DD)
+### v1.4.4 (13 November, 2024)
 
-#### 🎉 New Features
-- Feature 1
-- Feature 2
+#### 🔧 Changes
+ - Miscellaneous dependency updates
 
-#### 🔧 Improvements
-- Improvement 1
-- Improvement 2
-
-#### 🐛 Bug Fixes
-- Fix 1
-- Fix 2
-
----
+<hr>
 
 Found an error? [Open an issue](https://github.com/iKarTehFox/web-clock-docs/issues) or [make a pull request](https://github.com/iKarTehFox/web-clock-docs/pulls) instead!

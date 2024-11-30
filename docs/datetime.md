@@ -148,7 +148,8 @@ By default, there is no border style selected. You can change the border style t
 | Box | ![A screenshot of the Box border style with the "Solid" option selected](/assets/images/docs-Features/datetime/borderstyle-box-solid.png) | ![A screenshot of the Box border style with the "Dashed" option selected](/assets/images/docs-Features/datetime/borderstyle-box-dashed.png) | ![A screenshot of the Box border style with the "Dotted" option selected](/assets/images/docs-Features/datetime/borderstyle-box-dotted.png) | ![A screenshot of the Box border style with the "Double" option selected](/assets/images/docs-Features/datetime/borderstyle-box-double.png) |
 | Bottom | ![A screenshot of the Bottom border style with the "Solid" option selected](/assets/images/docs-Features/datetime/borderstyle-bottom-solid.png) | ![A screenshot of the Bottom border style with the "Dashed" option selected](/assets/images/docs-Features/datetime/borderstyle-bottom-dashed.png) | ![A screenshot of the Bottom border style with the "Dotted" option selected](/assets/images/docs-Features/datetime/borderstyle-bottom-dotted.png) | ![A screenshot of the Bottom border style with the "Double" option selected](/assets/images/docs-Features/datetime/borderstyle-bottom-double.png) |
 
-**Note:** You may need to open the images in a new tab to see the border styles in detail.
+{: .note }
+You may need to open the images in a new tab to see the border styles in detail.
 
 <hr>
 

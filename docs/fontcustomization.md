@@ -25,7 +25,8 @@ These two options allow you to set the font family for the clock and countdown t
 
 As for setting a custom font, you must specify the exact filename of the font file, including the file extension. If the specific font is not installed on your device or your browser isn't compatible with said font, the clock may revert to the default system font.
 
-**Note:** Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embeddded devices.
+{: .note }
+Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embeddded devices.
 
 <hr>
 

@@ -12,7 +12,6 @@ The countdown panel allows you to set a timer for any specified amount of time u
 
 ## Table of contents
 {: .no_toc .text-delta }
-
 1. TOC
 {:toc}
 
@@ -26,7 +25,9 @@ The countdown panel allows you to set a timer for any specified amount of time u
 2. **Time input**
  - These are the three input fields for the hours, minutes and seconds. You can type in the values directly, or use the up and down arrows to increase or decrease the value.
  - You cannot set a time greater than 100 hours.
-    - **Note:** Not all fields have to be filled in. If you leave a field blank, it will default to 0.
+
+    {: .note }
+    Not all fields have to be filled in. If you leave a field blank, it will default to **0**.
 
 3. **Control buttons**
  - <span style="color: #0d6efd;">**Start:**</span> Starts or resums the countdown timer if the time has been set, the time set is not greater than 100 hours, and the timer is not already running.

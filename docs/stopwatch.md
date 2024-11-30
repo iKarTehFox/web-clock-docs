@@ -34,7 +34,8 @@ The stopwatch panel allows you to start a stopwatch and record lap times.
  - You can add new times by clicking the **Lap** button.
  - You can resize the lap history window by dragging the bottom right corner.
 
-    **Note:** The format of each lap is `#Index: Time since last lap - Total time elapsed`.
+    {: .note }
+    The format of each lap is `#Index: Time since last lap - Total time elapsed`.
 
 The stopwatch will continue to run until manually stopped or reset.
 

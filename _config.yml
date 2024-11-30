@@ -1,11 +1,13 @@
 title: Online Web Clock Docs
-description: Documenation for Online Web Clock!
+description: Documentation for Online Web Clock!
 theme: just-the-docs
 
 url: https://web-clock-docs.pages.dev
 
+aux_links_new_tab: true
 aux_links:
-  Visit the site: https://online-clock.pages.dev/
+  View the site: https://online-clock.pages.dev/
+  Online Web Clock GitHub: https://github.com/iKarTehFox/web-clock
 
 # Enable or disable the site search
 # Supports true (default) or false
@@ -36,6 +38,32 @@ search:
   button: false
   # Focus the search input by pressing `ctrl + focus_shortcut_key` (or `cmd + focus_shortcut_key` on macOS)
   focus_shortcut_key: 'f'
+
+# Callouts config stolen straight from the documentation :D
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
+
+#Footer "Edit this page on GitHub" link text
+gh_edit_link: true # show or hide edit this page link
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/iKarTehFox/web-clock-docs" # the github URL for your repo
+gh_edit_branch: "main" # the branch that your docs is served from
+gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
+
+
 
 # Theme
 color_scheme: dark
