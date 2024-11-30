@@ -115,7 +115,12 @@ Here are the list of preset colors: (<a href='#custom-image'>Skip to Custom Imag
 - `#8B2C5A` - <span style="color: #8B2C5A; font-weight: bolder;">Deep mauve</span>
 - `#7C5793` - <span style="color: #7C5793; font-weight: bolder;">Dark lilac</span>
 
+{: .note }
+The color names were sourced from [Name that Color](https://chir.ag/projects/name-that-color/) and other sources.
+
 When a preset color is selected and [Text Color Override](#text-color) is disabled, the color of the clock display dynamically changes between black and white based on the luminance of the selected color.
+
+Essentially, if the luminance of the selected color is greater than 62%, the text color will be set to black. Otherwise, the text color will be set to white.
 
 ```ts
 // Preset color buttons listener
@@ -149,10 +154,6 @@ function getLuminance(color: string): number {
     return luminance;
 }
 ```
-
-{: .note }
-The color names were sourced from [Name that Color](https://chir.ag/projects/name-that-color/) by [Chirag Mehra](https://chir.ag/about).
-
 
 #### Custom Image
 You can also set a custom image as the background. You can use whatever image file type is supported by the `data:image` URI scheme, including but not limited to PNG, JPG, and GIF.
