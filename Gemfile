@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem "jekyll", "~> 4.3.4" # installed by `gem jekyll`
-# gem "webrick"        # required when using Ruby >= 3 and Jekyll <= 4.2.2
+gem "jekyll", "~> 4.3.4" # Jekyll base
+gem "just-the-docs", "0.10.0" # Just the Docs theme
 
-gem "just-the-docs", "0.10.0" # pinned to the current release
-# gem "just-the-docs"        # always download the latest release
+gem "webrick", ">= 1.8.2" # For Jekyll
+gem "google-protobuf", ">= 4.28.2" # For Protobuf
+gem "rexml", ">= 3.3.9" # For Protobuf
 
 # Things to make CLI happy
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
