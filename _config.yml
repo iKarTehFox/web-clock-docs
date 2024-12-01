@@ -43,6 +43,8 @@ search:
 
 # Callouts config stolen straight from the documentation :D
 callouts:
+  info:
+    color: grey-lt
   tip:
     title: Tip
     color: yellow
