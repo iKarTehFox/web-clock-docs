@@ -49,8 +49,6 @@ To **enable** the weather widget, **all of the following parameters must be set*
 | weatherLon | float | Longitude of the location |
 | weatherUnits | string | Units to use for weather data (`metric` or `imperial`) |
 
-**Tip:** For proper Latitude and Longitude values, **North** latitude is **positive**, and **West** longitude is **negative**. Vice versa for **South** and **East** respectively.
-
 **Example:** `?weatherApi=API_KEY&weatherLat=40.7128&weatherLon=-74.0060&weatherUnits=imperial` would load the weather widget with the specified OWM API key, using imperial units, and the coordinates of New York City.
 
 <hr>

@@ -6,7 +6,10 @@ nav_order: 7
 ---
 # Display Options
 {: .no_toc }
-The Display Options section in the menu panel gives you options to change the look of the UI and other browser features. 
+The Display Options section in the menu panel gives you options to change the look of the UI and other browser features.
+
+{: .tip }
+All of these settings can be set with [URL parameters](/docs/url-params#base-url-parameters).
 
 ![A screenshot of the Display Options menu options.](/assets/images/docs-Features/displayoptions/displayoptions.png)
 

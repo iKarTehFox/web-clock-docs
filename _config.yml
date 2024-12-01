@@ -41,7 +41,8 @@ search:
 
 # Callouts config stolen straight from the documentation :D
 callouts:
-  highlight:
+  tip:
+    title: Tip
     color: yellow
   important:
     title: Important
