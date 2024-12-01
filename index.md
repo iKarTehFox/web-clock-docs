@@ -17,7 +17,7 @@ Welcome to the Online Web Clock docs!
 - 💡 [Troubleshooting](/docs/troubleshooting)
 
 ## Latest Updates
-See what's new in the latest version:
+See what's new for Online Web Clock:
 
 ### v1.4.4 (13 November, 2024)
 
