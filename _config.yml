@@ -4,6 +4,8 @@ theme: just-the-docs
 
 url: https://web-clock-docs.pages.dev
 
+favicon_ico: /assets/images/favicon.ico
+
 aux_links_new_tab: true
 aux_links:
   View the site: https://online-clock.pages.dev/
