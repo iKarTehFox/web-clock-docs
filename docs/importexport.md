@@ -32,20 +32,20 @@ The menu includes a few presets which you can import. They contain pre-configure
 {: .note }
 As they are not automatically preloaded, you may need an internet connection to apply a preset if you are not serving the site locally and the presets are not already cached.
 
-## Export settings
+### Export settings
 You can export your currently selected settings to a JSON file by clicking the "Export" button, or by copying the raw JSON data to your clipboard.
 
 ![A screenshot of the exporting buttons.](/assets/images/docs-Features/importexport/export.png)
 
-### Base keys
-Below is a table of the base keys of the JSON object:
+#### Base keys
+Below is a table of the top-level keys in the settings JSON object:
 
 | Key | Valid values | Description |
 | --- | --- | --- |
 | exportTimestamp | `string` | The timestamp of when the settings were exported |
 | version | `7` | Hardcoded version number |
 
-### clockConfig key
+#### clockConfig key
 Below is a table of the subkeys of the `clockConfig` object and their valid values.
 
 | Subkey | Valid values | Description |
@@ -62,7 +62,7 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 {: .info }
 For more info on these settings, see [Date and Time](/docs/datetime).
 
-### fontConfig key
+#### fontConfig key
 Below is a table of the subkeys of the `fontConfig` object and their valid values.
 
 | Subkey | Valid values | Description |
@@ -78,7 +78,7 @@ Below is a table of the subkeys of the `fontConfig` object and their valid value
 {: .info }
 For more info on these settings, see [Font Customization](/docs/fontcustomization).
 
-### colorTheme key
+#### colorTheme key
 Below is a table of the subkeys of the `colorTheme` object and their valid values.
 
 | Subkey | Valid values | Description |
@@ -93,3 +93,17 @@ Below is a table of the subkeys of the `colorTheme` object and their valid value
 
 {: .info }
 For more info on these settings, see [Background Theme](/docs/backgroundtheme).
+
+### What isn't exported?
+1. Time Zone
+2. Time Refresh Method
+3. Custom Font
+4. Color Transition length
+5. Weather widget settings (Use [URL Parameters](/docs/url-params#weather-widget-parameters) to set these automatically)
+6. All Display Options (Use [URL Parameters](/docs/url-params#url-parameter-list) to set these automatically)
+
+Why? Not all settings are meant to be exported. For instance, the time zone is set automatically based on your locale, and not all custom fonts are available on everyone's device.
+
+For Display Options specifically, they are meant to be tailored to your own preferences and device requirements and are not designed to be exported as a result.
+
+Additionally, you can't (and shouldn't) export your weather settings as they contain your API key and precise location, which should obviously be kept private!
