@@ -50,11 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const target = e.target as HTMLElement;
         const isMenuRelated = menu.options.contains(target) || 
                                    menu.obutton.contains(target) || 
+                                   menu.cbutton.contains(target) || 
                                    countdown.container.contains(target) || 
                                    countdown.obutton.contains(target);
+        const isCountdownVisible = countdown.container.style.display !== 'none';
         const isTooltip = target.closest('.tooltip') !== null;
+        const isCardOverlay = target.closest('[data-overlay="card-overlay"]') !== null;
 
-        if (!isMenuRelated && !isTooltip && countdown.container.style.display !== 'none') {
+        if (!isMenuRelated && !isTooltip && !isCardOverlay && isCountdownVisible) {
             countdown.container.style.display = 'none';
             countdown.obutton.className = 'btn btn-secondary';
             logConsole('Countdown panel closed', 'info');
@@ -64,19 +67,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Esc down to close countdown
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && countdown.container.style.display !== 'none') {
+    const isCountdownVisible = countdown.container.style.display !== 'none';
+    const isCardOverlayVisible = document.querySelector('[data-overlay="card-overlay"]') !== null;
+
+    if (e.key === 'Escape' && isCountdownVisible && !isCardOverlayVisible) {
         countdown.container.style.display = 'none';
         countdown.obutton.className = 'btn btn-secondary';
         logConsole('Countdown panel closed', 'info');
     }
 });
 ```
+The following table shows which elements, if clicked on, will close the countdown panel.  
+Essentially, the countdown panel will only close if the stopwatch panel is opened, or if the user clicks outside the countdown panel.
 
 | Element clicked | Will close countdown panel? |
 | --- | --- |
 | Countdown close button | ✅ |
 | Stopwatch open button | ✅ |
-| Menu close button | ✅ |
 | Outside area | ✅ |
 | Menu open button | ❌ |
+| Menu close button | ❌ |
 | Menu panel | ❌ |
+| Card overlay | ❌ |
+
+The menu opens and closes independently of the countdown panel, and will never close the countdown panel when interacted with.
