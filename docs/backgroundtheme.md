@@ -74,7 +74,7 @@ function startColorFade() {
 ```
 
 #### Solid
-When Solid mode is selected, you can choose between 33 preset background colors.   
+When Solid mode is selected, you can choose between 33 preset background colors.  
 Here are the list of preset colors: (<a href='#custom-image'>Skip to Custom Image section</a>)
 ##### Basic Colors
 - `#FF0000` - <span style="color: #FF0000; font-weight: bolder;">Basic red</span>

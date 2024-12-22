@@ -95,30 +95,10 @@ If you don't like the dynamic tab title, where it updates along with the time, y
 | --- | --- |
 | ![A screenshop of the page with Tab Title enabled.](/assets/images/docs-Features/displayoptions/tabtitle-on.png) | ![A screenshop of the page with Tab Title disabled.](/assets/images/docs-Features/displayoptions/tabtitle-off.png) |
 
-## Fullscreen and Debugging
-The fullscreen toggle and the debug checkbox are the last two Display options.
+## Fullscreen
+This toggle button switches between fullscreen and windowed mode.
 
-![A screenshot of the Fullscreen and debug logging options.](/assets/images/docs-Features/displayoptions/fullscreen-debug.png)
+![A screenshot of the Fullscreen toggle button.](/assets/images/docs-Features/displayoptions/fullscreen.png)
 
-The fullscreen toggle is self-explanatory, and the debug checkbox enables and disables log debugging to the console.
-
-To clarify, Online Web Clock uses a custom function called `logConsole()` to log messages to the console. It will only actually log if debug logging is enabled. Here's the function:
-
-```ts
-// Custom console logging function
-export function logConsole(message: string, type: string = 'debug'):void {
-    if (menu.debugcheckbox.checked && type === 'debug') {
-        console.log(`DEBUG - ${message}`);
-    } else if (type === 'error') {
-        console.error(`ERROR - ${message}`);
-    } else if (type === 'warning') {
-        console.warn(`WARNING - ${message}`);
-    } else if (menu.debugcheckbox.checked && type === 'info') {
-        console.info(`INFO - ${message}`);
-    }
-}
-```
-
-The logic ensures that debug logging must be enabled to log DEBUG and <span style="color: #0DCAF0;">INFO</span> messages, but <span style="color: #FF5449;">ERROR</span> and <span style="color: #FE8D59;">WARNING</span> messages will always be logged.
-
-![A screenshot of the console with debug logging enabled. First, Iconify icons are preloaded, then a preset is manually loaded from the menu.](/assets/images/docs-Features/displayoptions/debug-console.png)
+{: .warning }
+The fullscreen toggle may not function correctly if you manually entered fullscreen mode with <kbd>F11</kbd>.

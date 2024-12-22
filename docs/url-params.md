@@ -18,7 +18,7 @@ In Online Web Clock, you can use URL Parameters to directly pass options into th
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| debug | boolean | Enables debug logging to the console |
+| debugMode | boolean | Enables debug logging and Debugging menu options |
 | darkMode | boolean | Enables dark mode |
 | panelVis | boolean | Toggles panel buttons visibility |
 | preset | filename | Load the `<filename>` JSON preset file from `/assets/` |

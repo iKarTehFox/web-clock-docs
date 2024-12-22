@@ -29,11 +29,13 @@ The menu includes a few presets which you can import. They contain pre-configure
 
 ![A screenshot of the built-in presets buttons.](/assets/images/docs-Features/importexport/presets.png)
 
+You can also type the number next to the respective preset name to import it. For instance, you can press the number "<kbd>1</kbd>" on any screen to import the "AMOLED theme" preset.
+
 {: .note }
 As they are not automatically preloaded, you may need an internet connection to apply a preset if you are not serving the site locally and the presets are not already cached.
 
 ### Export settings
-You can export your currently selected settings to a JSON file by clicking the "Export" button, or by copying the raw JSON data to your clipboard.
+You can export your currently selected settings to a JSON file by clicking the "Export" button, by copying the raw JSON data to your clipboard, or by generating a QR code.
 
 ![A screenshot of the exporting buttons.](/assets/images/docs-Features/importexport/export.png)
 
@@ -43,7 +45,7 @@ Below is a table of the top-level keys in the settings JSON object:
 | Key | Valid values | Description |
 | --- | --- | --- |
 | exportTimestamp | `string` | The timestamp of when the settings were exported |
-| version | `7` | Hardcoded version number |
+| version | `7` | Hardcoded version number. Do not change. |
 
 #### clockConfig key
 Below is a table of the subkeys of the `clockConfig` object and their valid values.
@@ -93,6 +95,17 @@ Below is a table of the subkeys of the `colorTheme` object and their valid value
 
 {: .info }
 For more info on these settings, see [Background Theme](/docs/backgroundtheme).
+
+### QR Codes
+You can choose to export your JSON settings by generating a QR code. While you can generate a QR code at any time, you can't scan it in Online Web Clock, but you can scan the QR code with another app and copy the JSON data to your clipboard.
+
+![A card overlay with a QR code in its body.](/assets/images/docs-Development/cardoverlay/cardoverlay-qr.png)
+
+{: .note }
+The QR code above contains the JSON data for the AMOLED theme preset. Just to not keep you guessing... :P
+
+{: .warning }
+QR codes have a theoretical maximum capacity of 2,953 bytes of binary data. If your JSON export exceeds this limit—for example, if your have a large background image set—the QR code cannot be generated.
 
 ### What isn't exported?
 1. Time Zone
