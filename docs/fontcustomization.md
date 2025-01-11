@@ -23,10 +23,10 @@ These two options allow you to set the font family for the clock and countdown t
 | --- | --- |
 | ![A screenshot of the Font Family and Custom Font dropdown menus.](/assets/images/docs-Features/fontcustomization/fontfamily.png) | ![A screenshot of the Font Family dropdown menu with all the included, built-in fonts](/assets/images/docs-Features/fontcustomization/fontfamily-dropdown.png) |
 
-As for setting a custom font, you must specify the exact filename of the font file, including the file extension. If the specific font is not installed on your device or your browser isn't compatible with said font, the clock may revert to the default system font.
+As for setting a custom font, you must specify the exact filename of the font file. If the requested font is not installed on your device or isn't compatible with your browser, the clock may revert to the default system font.
 
 {: .note }
-Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embeddded devices.
+Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embedded devices.
 
 <hr>
 
