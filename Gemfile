@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "jekyll", "~> 4.3.4" # Jekyll base
+gem "jekyll", "~> 4.4.0" # Jekyll base
 gem "just-the-docs", "0.10.0" # Just the Docs theme
 
 gem "webrick", ">= 1.8.2" # For Jekyll
