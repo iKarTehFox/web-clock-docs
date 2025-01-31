@@ -215,8 +215,7 @@ function startClock() {
 
 // Function to start the new clock method
 function startNewClock() {
-    const now = luxon.DateTime.now();
-    const timeToNextSecond = 1000 - now.toMillis() % 1000;
+    const timeToNextSecond = 1000 - Number(getLuxNow('millis')) % 1000;
 
     setTimeout(() => {
         updateTime();
@@ -230,16 +229,19 @@ function startNewClock() {
             updatePageDuration();
             logConsole('Time and page duration updated...', 'info');
 
-            // Correct the interval drift
             const now = Date.now();
             const elapsed = now - lastUpdateTime;
             lastUpdateTime = now;
 
             const drift = elapsed - 1000;
-            if (Math.abs(drift) > 50) {
-                logConsole(`Time drift detected: ${drift}ms.`, 'info');
+
+            // Add a maximum drift threshold, e.g. 1000ms
+            const cappedDrift = Math.max(Math.min(drift, 1000), -1000);
+
+            if (Math.abs(drift) > 150) {
+                logConsole(`Time drift detected: ${drift > 0 ? '+':''}${drift}ms.${Math.abs(drift) > 1000 ? ` Capped to ${cappedDrift}ms` : ''}`, 'debug');
                 clearInterval(clockInterval!);
-                setTimeout(startNewClock, 1000 - drift);
+                setTimeout(startNewClock, 1000 - cappedDrift);
             }
         }, 1000);
     }, timeToNextSecond);
@@ -251,6 +253,6 @@ function startOldClock() {
         updateTime();
         updatePageDuration();
         logConsole('Time and page duration updated (Legacy method)...', 'info');
-    }, 250) as unknown as NodeJS.Timeout;
+    }, timeRefresh) as unknown as NodeJS.Timeout;
 }
 ```

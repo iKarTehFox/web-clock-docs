@@ -39,42 +39,78 @@ export function makeCardOverlay(title: string, content: HTMLElement | string): v
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: '10'
+        zIndex: '10',
+        overflow: 'hidden'
     });
 
     // Create card
     const card = document.createElement('div');
     Object.assign(card.style, {
-        width: 'fit-content',
-        maxWidth: '95vw',
+        width: 'clamp(300px, 80%, 600px)',
         maxHeight: '90vh',
-        overflow: 'auto'
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column'
     });
     card.className = 'card';
 
     // Create card body
     const cardBody = document.createElement('div');
+    Object.assign(cardBody.style, {
+        overflowY: 'auto',
+        overflowX: 'auto',
+        flexGrow: '1',
+        maxWidth: '100%',
+        width: '100%',
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
+        marginBottom: '0',
+        marginTop: '0',
+        paddingBottom: '0',
+        paddingTop: '0',
+        userSelect: 'text'
+    });
     cardBody.className = 'card-body';
 
     // Create title
     const titleElement = document.createElement('h5');
-    titleElement.className = 'card-title text-center';
+    Object.assign(titleElement.style, {
+        textAlign: 'center',
+        fontSize: '1.5rem',
+        position: 'sticky',
+        top: '0',
+        backgroundColor: 'var(--bs-card-bg)',
+        padding: '1rem',
+        borderBottom: '1px solid #dddddd',
+        zIndex: '1'
+    });
+    titleElement.className = 'card-title';
     titleElement.textContent = title;
-
-    // Create horizontal rule
-    const hr = document.createElement('hr');
 
     // Create content container
     const contentContainer = document.createElement('div');
+    contentContainer.className = 'd-flex justify-content-center align-items-center';
+
     if (typeof content === 'string') {
         contentContainer.textContent = content;
     } else {
+        content.style.maxWidth = '100%';
+        content.style.maxHeight = '80vh';
+        content.style.objectFit = 'contain';
         contentContainer.appendChild(content);
     }
 
     // Create button container
     const buttonContainer = document.createElement('div');
-    buttonContainer.className = 'mt-3 d-flex gap-2 justify-content-center';
+    buttonContainer.className = 'mb-0 d-flex gap-2 justify-content-center';
+    Object.assign(buttonContainer.style, {
+        marginTop: '8px',
+        position: 'sticky',
+        bottom: '0',
+        backgroundColor: 'var(--bs-body-bg)',
+        padding: '1rem',
+        borderTop: '1px solid #dddddd'
+    });
 
     // Create close button
     const closeButton = document.createElement('button');
@@ -86,14 +122,14 @@ export function makeCardOverlay(title: string, content: HTMLElement | string): v
         if (e.key === 'Escape') {
             document.body.removeChild(container);
             document.removeEventListener('keydown', escapeHandler);
-            logConsole(`Overlay card container with settings (${title}, ${content}) removed`, 'info');
+            logConsole(`Overlay card container with settings (${title}, ${content}) removed`, 'debug');
         }
     }
 
     closeButton.onclick = () => {
         document.body.removeChild(container);
         document.removeEventListener('keydown', escapeHandler);
-        logConsole(`Overlay card container with settings (${title}, ${content}) removed`, 'info');
+        logConsole(`Overlay card container with settings (${title}, ${content}) removed`, 'debug');
     };
 
     // Create download button if content is downloadable media
@@ -123,7 +159,6 @@ export function makeCardOverlay(title: string, content: HTMLElement | string): v
 
     // Append elements
     cardBody.appendChild(titleElement);
-    cardBody.appendChild(hr);
     cardBody.appendChild(contentContainer);
     cardBody.appendChild(buttonContainer);
     card.appendChild(cardBody);
@@ -133,7 +168,7 @@ export function makeCardOverlay(title: string, content: HTMLElement | string): v
     document.body.appendChild(container);
     document.addEventListener('keydown', escapeHandler);
 
-    logConsole(`Overlay card container created with settings: (${title}, ${content})`, 'info');
+    logConsole(`Overlay card container created with settings: (${title}, ${content})`, 'debug');
 }
 ```
 

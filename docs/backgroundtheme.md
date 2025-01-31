@@ -58,7 +58,9 @@ function startColorFade() {
     const colorNames = Object.keys(colors);
     let currentIndex = 0;
 
+    // Initial color update
     bodyElement.style.backgroundColor = colors[colorNames[currentIndex]];
+
     const fadetime = menu.fadetransrange.value; // Get fade transition length value when restarted
     bodyElement.style.transition = `background-color ${fadetime}s ease-in-out`;
     menu.colorbadge.textContent = colors[colorNames[currentIndex]]; // Initial color badge update
@@ -68,7 +70,8 @@ function startColorFade() {
         const currentColor = colors[colorNames[currentIndex]];
         bodyElement.style.backgroundColor = currentColor;
         menu.colorbadge.textContent = currentColor;
-        logConsole(`Fade background color to: ${currentColor}`, 'info');
+        setMetaColor('color', currentColor);
+        logConsole(`Fade background color to: ${currentColor}`, 'debug');
     }, 3000);
 }
 ```
@@ -131,10 +134,10 @@ menu.presetcolors.forEach((radio) => {
         const luminance = getLuminance(color as string);
 
         // Set the text color based on the background luminance
-        if (luminance > 0.62 && tcoO === 0) {
+        if (luminance > 0.62 && isTextColorOverride === 0) {
             dtdisplay.ccontainer.style.color = '#212529'; // Set black text color
             dtdisplay.secondsBar.style.backgroundColor = '#212529';
-        } else if (tcoO === 0) {
+        } else if (isTextColorOverride === 0) {
             dtdisplay.ccontainer.style.color = '#FFF'; // Set white text color
             dtdisplay.secondsBar.style.backgroundColor = '#FFF';
         }
@@ -149,7 +152,7 @@ function getLuminance(color: string): number {
 
     // Calculate the relative luminance using the sRGB color space formula
     const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    logConsole(`Luminance for ${color}: ${luminance}`, 'info');
+    logConsole(`Luminance for ${color}: ${luminance}`, 'debug');
 
     return luminance;
 }

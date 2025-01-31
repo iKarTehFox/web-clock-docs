@@ -22,9 +22,9 @@ In Online Web Clock, you can use URL Parameters to directly pass options into th
 | darkMode | boolean | Enables dark mode |
 | panelVis | boolean | Toggles panel buttons visibility |
 | preset | filename | Load the `<filename>` JSON preset file from `/assets/` |
-| tabTitle | boolean | Toggles dynamic tab title functionality |
-| autoRestart | integer | Auto reloads the website after `<integer>` seconds (Min `15`, max `86400`) |
-| lockSettings | boolean | Prevent end-user settings modification |
+| tabTitle | boolean | Toggles tab title clock display |
+| autoRestart | integer | Refreshes the page after `<integer>` seconds (min `15`, max `86400`) |
+| lockSettings | boolean | Prevents end-user settings modification |
 
 #### MORE INFO
 **How do I load my custom preset file?** Download or build the site, and serve locally. You can place your own preset JSON file in the `/assets/` directory, then specify the filename in the parameter! 
@@ -49,7 +49,7 @@ To **enable** the weather widget, **all of the following parameters must be set*
 | weatherLon | float | Longitude of the location |
 | weatherUnits | string | Units to use for weather data (`metric` or `imperial`) |
 
-**Example:** `?weatherApi=API_KEY&weatherLat=40.7128&weatherLon=-74.0060&weatherUnits=imperial` would load the weather widget with the specified OWM API key, using imperial units, and the coordinates of New York City.
+**Example:** `?weatherApi=API_KEY&weatherLat=40.7128&weatherLon=-74.0060&weatherUnits=imperial` would load the weather widget with the specified API key, using imperial units, and the coordinates of New York City.
 
 <hr>
 
@@ -60,8 +60,8 @@ Additionally, **both parameters** below **must be set** to position the widget:
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| weatherWidgetPosX | integer | Horizontal offset of the weather widget from the left edge of the screen |
-| weatherWidgetPosY | integer | Vertical offset of the weather widget from the top edge of the screen |
+| weatherWidgetPosX | integer | Horizontal offset of the weather widget (in pixels) from the left edge of the screen |
+| weatherWidgetPosY | integer | Vertical offset of the weather widget (in pixels) from the top edge of the screen |
 
-**Example:** `?weatherWidgetPosX=10&weatherWidgetPosY=10` would position the widget **10px from the left** and **10px from the top**.
+**Example:** `?weatherWidgetPosX=10&weatherWidgetPosY=10` would position the widget **10 pixels from the left** and **10 pixels from the top**.
 

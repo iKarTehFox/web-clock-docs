@@ -24,16 +24,15 @@ This page will guide you through the installation process. You may choose to man
 To start off, you'll first need to download (or "clone") the website's files.
 
 1. Ensure you have Git installed on your PC
- - If you're on Ubuntu or Debian-based distros, you can install Git with the following command:  
- `sudo apt-get install git`
+ - If you're on Ubuntu or a Debian-based distro, you can install Git with the following command:  
+ `sudo apt install git -y`
  - If you're on Windows, you can download Git from the [official website](https://git-scm.com/download/win)
 
 2. Open the Terminal (or Command Prompt) and clone the repository and `cd` into it with this command:  
  `git clone https://github.com/iKarTehFox/web-clock.git && cd web-clock`
+ - If you are using an IDE like VS Code, you can clone the repository using this URL: `https://github.com/iKarTehFox/web-clock.git`
 
-3. If you are using an IDE like VS Code, you can clone the repository using this URL: `https://github.com/iKarTehFox/web-clock.git`
-
-4. Skip to [Building the website](#building-the-website-if-cloned)
+3. Skip to [Building the website](#building-the-website-if-cloned)
 
 ### Downloading a release (Method 2)
 If you would rather download a pre-built version of the website, you can download the latest release from the [releases page](https://github.com/iKarTehFox/web-clock/releases)
@@ -62,6 +61,7 @@ After you have downloaded or built the website, you can now serve it locally.
 If you are using Node.js, you can use `http-server` to serve the website.
 1. Install `http-server` by running `npm install -g http-server`
 2. Run `http-server -p 80 ./dist` to serve the website on port 80 (or whatever port you want)
+ - If you downloaded a pre-built version, simply run `http-server -p 80` instead.
 
     ![A screenshot of the http-server command running in a Terminal.](/assets/images/docs-Installation/http-server-example.png)
 

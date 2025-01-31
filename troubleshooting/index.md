@@ -16,28 +16,35 @@ nav_order: 4
 The following errors are a result of a JSON settings file failing verification. This could be due to many reasons, but the most common are explained below.
 
 ### Invalid value of version: [number]
-This is likely due to your JSON settings file being outdated or corrupted. To fix this, please export a new settings file.  
+**Reason**: Your settings file is outdated.  
+**Solution**: Export a new settings file with the same settings.
 
 ![A screenshot of the invalid version error popup in Mozilla Firefox.](/assets/images/docs-Troubleshooting/import-version-firefox.png)
 
 ### Invalid value of [key]: [value]
-You have a valid JSON file, but some settings have invalid values, as they might have been tampered with. Review the error to fix your settings file.  
-For instance, the screenshot below shows an error for the `clockDisplay` setting set to `invalid`, but the only valid values are "binary", "octal", "decimal", "hexa", "emoji", "roman", and "words". The solution would be to set the setting's value to one of those.
+**Reason**: A subkey was found with an invalid or disallowed value.  
+**Solution**: Review the error to fix your settings file, or export a new settings file.
 
 ![A screenshot of the general invalid value error popup in Mozilla Firefox.](/assets/images/docs-Troubleshooting/import-invalidvalue-firefox.png)
 
+{: .tip }
+As seen in the example screenshot above, it mentions that the value of `clockDisplay` was invalid, as it doesn't match any of the expected values. Change the value of the subkey in your JSON file to one of the allowed values.
+
 ### Unexpected keys: [keyName]
-The JSON file has extraneous, garbage data. You either imported the wrong file, your settings file is corrupted, or your settings file has been tampered with. Remove or replace the affected keys, or export a new settings file.
+**Reason**: Extraneous keys or garbage data was found in the JSON file.  
+**Solution**: Remove the extra keys from your JSON file, or export a new settings file.
 
 ![A screenshot of the unexpected keys error popup in Mozilla Firefox.](/assets/images/docs-Troubleshooting/import-unexpectedkeys-firefox.png)
 
 ### Missing subkeys: [subkeys]
-Your JSON file is missing important subkeys. Either the file is badly corrupted, or you simply selected the wrong JSON file. Select the correct settings file or export a new settings file.
+**Reason**: Critical subkeys were missing in the JSON file.  
+**Solution**: Ensure you are importing the correct JSON file. Export a new settings file if the current file is corrupted.
 
 ![A screenshot of the missing subkeys error popup in Mozilla Firefox.](/assets/images/docs-Troubleshooting/import-missing-firefox.png)
 
 ### Invalid settings file toast
-This toast may appear if you import a file that doesn't have valid JSON, or doesn't have a `.json` extension. Reselect the correct file and try again.
+**Reason**: The file you uploaded couldn't be decoded as valid JSON or didn't have a `.json` file extension.  
+**Solution**: Check that the file you uploaded was a valid JSON file. Export a new settings file if the current file is corrupted.
 
 ![A screenshot of the invalid settings file toast error popup.](/assets/images/docs-Troubleshooting/import-invalidfile.png)
 

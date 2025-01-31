@@ -26,8 +26,7 @@ These two options allow you to set the font family for the clock and countdown t
 As for setting a custom font, you must specify the exact filename of the font file. If the requested font is not installed on your device or isn't compatible with your browser, the clock may revert to the default system font.
 
 {: .note }
-Not all of the *built-in fonts* are compatible with all devices. For instance, Montserrat may not work on older devices such as smart TVs (they usually have old browsers) and other embedded devices.
-
+Some *built-in fonts* may not be compatible with older devices or browsers, such as smart TVs and embedded systems which often use older browser technologies.
 <hr>
 
 ### Font Style and Weight
@@ -62,7 +61,7 @@ The Font Size dropdown menu lets you change the font size of the clock. This is 
 
 ![A screenshot of the Font Size dropdown menu and its options.](/assets/images/docs-Features/fontcustomization/fontsize.png)
 
-The sizes are in measures of viewport width, so the larger the screen, the larger the font, and vice versa (the smaller the screen, the smaller the font).
+Font sizes are measured in viewport width units (vw). The larger the screen, the larger the font is proportional to the screen size. As such, the smaller the screen, the smaller the font size.
 
 | Huge (18vw) | Smaller (6vw) |
 | --- | --- |
