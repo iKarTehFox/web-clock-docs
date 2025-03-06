@@ -3,9 +3,9 @@ title: Features (Development)
 layout: default
 nav_order: 4
 ---
-# Features
+# Features (Development)
 {: .no_toc}
-A list of all the dev utilities in Online Web Clock.
+A list of all the dev-oriented utilities in Online Web Clock.
 
 1. TOC
 {:toc}

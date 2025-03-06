@@ -20,6 +20,7 @@ In Online Web Clock, you can use URL Parameters to directly pass options into th
 | --- | --- | --- |
 | debugMode | boolean | Enables debug logging and Debugging menu options |
 | darkMode | boolean | Enables dark mode |
+| fastRefresh | boolean | Enables fast refresh mode (1ms update interval)<br>*Only applicable when using [Legacy Refresh method](/docs/datetime#time-refresh-method)* |
 | panelVis | boolean | Toggles panel buttons visibility |
 | preset | filename | Load the `<filename>` JSON preset file from `/assets/` |
 | tabTitle | boolean | Toggles tab title clock display |
@@ -27,11 +28,11 @@ In Online Web Clock, you can use URL Parameters to directly pass options into th
 | lockSettings | boolean | Prevents end-user settings modification |
 
 #### MORE INFO
-**How do I load my custom preset file?** Download or build the site, and serve locally. You can place your own preset JSON file in the `/assets/` directory, then specify the filename in the parameter! 
+**How do I load my custom preset file?** Download or build the site, and serve locally. You can place your own preset JSON files in the `/assets/` directory, then specify the filename in the URL parameter! 
 
 **What purpose does autoRestart serve?** When set to an integer within `15` and `86400` inclusive (15 seconds to 24 hours), the page will start a background timer to reload the page after the specified duration. This ensures the page is up-to-date and maintains a stable internet connection.
 
-**How does lockSettings work?** When this parameter is set to `true`, the **entire** menu container element and panel buttons are **deleted from the DOM**. This ensures the end-user cannot change any settings after the page is deployed.
+**What does lockSettings do?** When this parameter is set to `true`, the **entire** menu container and panel buttons are **deleted from the DOM**. This ensures the end-user cannot change any settings after the page is deployed.
 
 For **deployment**, the following parameters are recommended: `?preset=<filename>&autoRestart=<integer>&lockSettings=true`
 

@@ -22,7 +22,7 @@ There are three methods of uploading your settings, either by uploading a JSON f
 ![A screenshot of the import upload button and text field upload form.](/assets/images/docs-Features/importexport/import.png)
 
 After uploading your settings, Online Web Clock will automatically verify and load all of your settings.  
-For an insight into how the site encodes, decodes, and verifies your JSON exports, refer to the [code in the GitHub repository](https://github.com/iKarTehFox/web-clock/blob/prod/src/importExport.ts).
+For an insight into how the site encodes, decodes, and verifies JSON settings, refer to the [code in the GitHub repository](https://github.com/iKarTehFox/web-clock/blob/prod/src/importExport.ts).
 
 {: .note }
 For more info on scanning and generating QR codes, refer to [this section](#qr-codes).
@@ -48,7 +48,7 @@ Below is a table of the top-level keys in the settings JSON object:
 | Key | Valid values | Description |
 | --- | --- | --- |
 | exportTimestamp | `string` | The timestamp of when the settings were exported |
-| version | `9` | Hardcoded version number. Do not change. |
+| version | `10` | Hardcoded version number. Do not change. |
 
 #### clockConfig key
 Below is a table of the subkeys of the `clockConfig` object and their valid values.
@@ -62,7 +62,9 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 | dateAlign | `dpoL`, `dpoC`, `dpoR` | Alignment of the date |
 | borderMode | `btyD`, `btyR`, `btyB` | Type of border, such as bottom, box, or disabled |
 | borderStyle | `solid`, `dashed`, `dotted`, `double` | Style of the border |
-| secondsBarVis | **unset**, `sbaB`, `sbaN` | Whether to display the seconds bar |
+| timebar | `tbarWeekday`, `tbarMonth`, `tbarDay`, `tbarHour`, `tbarSec`, `tbarNone` | Type of time bar display |
+| customNote | `string` | Custom note text to display |
+| customNoteAlign | `nalT`, `nalB` | Alignment of the custom note |
 
 {: .info }
 For more info on these settings, see [Date and Time](/docs/datetime).
@@ -103,13 +105,13 @@ For more info on these settings, see [Background Theme](/docs/backgroundtheme).
 Settings can be exported as a QR code, which can then be scanned from the [Import settings](#import-settings) section to import them back.
 
 #### Exported QR code
-![A card overlay with a QR code in its body.](/assets/images/docs-Development/cardoverlay/cardoverlay-qr.png)
+![A Bootstrap modal with a QR code in its body.](/assets/images/docs-Features/importexport/export-qr.png)
 
 #### Scanning a QR code
 ![A screenshot of the QR code scanner.](/assets/images/docs-Features/importexport/import-qr.png)
 
 {: .warning }
-QR codes have a theoretical maximum capacity of *3KB* of binary data. If your JSON export exceeds this limit—for example, if your have a large background image set—the QR code cannot be generated.
+QR codes have a maximum capacity of *3KB* of data. If your JSON export exceeds this limit—for example, if you have a background image set—the QR code cannot be generated.
 
 ### What isn't exported?
 1. Time Zone
@@ -117,9 +119,9 @@ QR codes have a theoretical maximum capacity of *3KB* of binary data. If your JS
 3. Custom Font
 4. Color Transition length
 5. Weather widget settings (Use [URL Parameters](/docs/url-params#weather-widget-parameters) to set these automatically)
-6. All Display Options (Use [URL Parameters](/docs/url-params#url-parameter-list) to set these automatically)
+6. Display Options (Use [URL Parameters](/docs/url-params#url-parameter-list) to set these automatically)
 
-Why? Not all settings are meant to be exported. For instance, the time zone is set automatically based on your locale, and not all custom fonts are available on everyone's device.
+**Why?** Not all settings are meant to be exported. For instance, the time zone is set automatically based on your system settings, and not all custom fonts are available on everyone's device.
 
 For Display Options specifically, they are meant to be tailored to your own preferences and device requirements and are not designed to be exported as a result.
 

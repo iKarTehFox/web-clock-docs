@@ -70,11 +70,11 @@ Choosing a different radix system will change the number of digits used to repre
 
 | Radix | Description |
 | --- | --- |
-| Binary (Base 2) | Base 2, using only the digits 0 and 1. |
-| Octal (Base 8) | Base 8, using the digits 0 to 7. |
+| Binary (Base 2) | Base 2, using only the digits 0 and 1.<br>**Example:** 6:30 is displayed as "110:11110". |
+| Octal (Base 8) | Base 8, using the digits 0 to 7.<br>**Example:** 6:30 is displayed as "6:36". |
 | Decimal (Base 10) | Base 10, the default way to represent numbers. |
-| Hexadecimal (Base 16) | Base 16, using the digits 0 to 9 and the letters A to F. |
-| Hexatrigesimal (Base 36) | Base 36, using the digits 0 to 9 and the letters A to Z. |
+| Hexadecimal (Base 16) | Base 16, using the digits 0 to 9 and the letters A to F.<br>**Example:** 6:30 is displayed as "6:1E". |
+| Hexatrigesimal (Base 36) | Base 36, using the digits 0 to 9 and the letters A to Z.<br>**Example:** 6:30 is displayed as "6:U". |
 
 ![The time displayed using the Binary (Base 2) radix system. The time (4:30:15 PM) is shown as "100:11110:1111 PM".](/assets/images/docs-Features/datetime/displaysystem-binary.png)
 
@@ -85,43 +85,61 @@ Conversions give you fun ways to display the time:
 
 | Conversion | Description |
 | --- | --- |
-| Emoji | Displays the time in emojis like 1️⃣2️⃣:0️⃣0️⃣. |
-| Roman Numerals | Displays the time in Roman numerals like XII:00. |
-| Words | Displays the time in words like twelve:o'clock. |
+| Emoji | Displays the time in number emoji blocks.<br>**Example:** 6:30 is displayed as "6️⃣:3️⃣0️⃣". |
+| Roman Numerals | Displays the time in Roman numerals.<br>**Example:** 6:30 is displayed as "VI:XXX". |
+| Words | Displays the time in English words.<br>**Example:** 6:30 is displayed as "six:thirty". |
 
 ![The time displayed using the Roman Numeral Conversion system. The time (4:30:15) is shown as "IV:XXX:XV".](/assets/images/docs-Features/datetime/displaysystem-romannumeral.png)
 
 <hr>
 
-#### Experimental...
-These specific Display Systems are only included for fun. They are coded in a non-standard, jerry-rigged way and are not guaranteed to work properly.
+#### Technical
+These Display Systems are more geared towards tech-savvy users. They provide you with accurate Unix timestamps. 
 
-| Experimental Display System | Description |
+| Technical Display System | Description |
 | --- | --- |
 | Unix timestamp (Milliseconds) | Displays the time as the number of milliseconds since the Unix epoch. |
 | Unix timestamp (Seconds) | Displays the time as the number of seconds since the Unix epoch. |
-| Time until Y2K38 problem | Time in seconds until the Y2K38 problem, where computers representing time with a signed 32-bit integer will overflow and probably explode. |
+| Time until Y2K38 problem | Displays remaining time until Y2K38 problem, where computers representing time with a signed 32-bit integer will overflow after 3:14:07 UTC on January 19, 2038 and likely explode. |
 
-![The time displayed using the Unix timestamp (Milliseconds) experimental display system. The date (November 1st, 2024 at 4:30:15 PM) is shown as "1730496615000".](/assets/images/docs-Features/datetime/displaysystem-unixmillis.png)
+![The time displayed using the Unix timestamp (Milliseconds) experimental display system. The date (March 1, 2025 at 4:30:15 PM) is shown as "1740868215000".](/assets/images/docs-Features/datetime/displaysystem-unixmillis.png)
+
+<hr>
+
+### Time Bar
+The time bar is a new addition which replaces the legacy Seconds Bar. It is a wide horizontal bar that displays the progress of time. It's width increases as time passes according to the chosen setting.
+
+{: .tip }
+You cannot enable the Time Bar if a border style is selected.
+
+| Setting | Description |
+| --- | --- |
+| Week progress (Mon-Sun) | Displays the progress through the week, from Monday through Sunday. <br>**Example:** If it is Sunday, the bar will be 100% full. |
+| Month progress | Displays the progress through the month.<br>**Example:** If it is the 15th of the month, the bar will be 50% full in a 30-day month. The calculation changes automatically based on the number of days in the month. |
+| Day progress | Displays the progress through the day.<br>**Example:** If it is 6:00 PM (18:00), the bar will be 75% full. |
+| Hour progress | Displays the progress through the hour.<br>**Example:** If it is 15 minutes into the hour, the bar will be 25% full. |
+| Seconds | Displays the progress through the minute.<br>**Example:** If it is 15 seconds into the minute, the bar will be 25% full. |
+
+![A screenshot of the Time Bar dropdown menu with "Off" selected](/assets/images/docs-Features/datetime/timebar.png)
 
 <hr>
 
 ### Date Display
 If you prefer a different date format other than the default, you can change that here. Each option is localized based on your browser's locale and updates automatically as the date changes.
 
-![A screenshot of the Date Display dropdown menu with "Short" selected](/assets/images/docs-Features/datetime/datedisplay.png)
+![A screenshot of the Date Display dropdown menu with the first option selected](/assets/images/docs-Features/datetime/datedisplay.png)
 
 The table below lists the different tokens Luxon uses for each date format:
 
-| Date Display | Description |
+| Date format token | Description |
 | --- | --- |
-| D | Localized numeric date |
-| DD | Localized date with abbreviated month |
-| DDD | Localized date with full month |
-| DDDD | Localized date with full month and weekday |
+| D | Localized numeric date (3/1/2025) |
+| DD | Localized date with abbreviated month (Mar 1, 2025) |
+| DDD | Localized date with full month (March 1, 2025) |
+| DDDD | Localized date with full month and weekday (Saturday, March 1, 2025) |
 | Off | The date is hidden |
 
-![The date displayed using the DDDD date display. The date (11/1/2024) is shown as "Friday, November 1st, 2024".](/assets/images/docs-Features/datetime/datedisplay-dddd.png)
+![The date displayed using the "DDDD" date format. The date (3/1/2025) is shown as "Saturday, March 1, 2025".](/assets/images/docs-Features/datetime/datedisplay-dddd.png)
 
 <hr>
 
@@ -139,7 +157,8 @@ You can set the border style of the clock to give it a sort of "frame" around th
 
 By default, there is no border style selected. You can change the border style to "Box" or "Bottom", both of which have the "Solid", "Dashed", "Dotted", and "Double" options.
 
-**You cannot select a border style if the "seconds bar" is visible.**
+{: .tip }
+You cannot select a border style if the "Time Bar" is enabled.
 
 ![A screenshot of the Border Style radio buttons with "Box" and "Solid" selected](/assets/images/docs-Features/datetime/borderstyle.png)
 
@@ -153,32 +172,17 @@ You may need to open the images in a new tab to see the border styles in detail.
 
 <hr>
 
-### Seconds Bar Visibility
-Here, you can set the visibility of the "seconds bar", a thin, animated line that runs below the clock to indicate the current progress along the minute.
+### Custom Note
+You may add a custom note to the page. It can hold any text within 75 characters. A few examples of what it can be used for is quotes, reminders, jokes, etc. Additionally, you can choose between top and bottom alignment.
 
-**You cannot enable the seconds bar if a border style is selected.**
+![A screenshot of the Custom Note text box with the text "Hello world!" entered](/assets/images/docs-Features/datetime/customnote.png)
 
-![A screenshot of the Seconds Bar Visibility radio buttons with "Hide" selected](/assets/images/docs-Features/datetime/secondsbarvis.png)
+![The custom note displayed at the bottom of the clock. The custom note says "Hello world!"](/assets/images/docs-Features/datetime/customnote-example.png)
 
-<video controls controlslist="nodownload nofullscreen" loop muted>
-    <source src="/assets/images/docs-Features/datetime/secondsbarvis.mp4" type="video/mp4">
-    <source src="/assets/images/docs-Features/datetime/secondsbarvis.webm" type="video/webm">
-</video>
-
-**How does it work?** It is simply a horizontal line with a CSS animation that changes the width of the line based on the current seconds.
-
-```ts
-// Seconds progress bar
-if (menu.secondsbarradio[0].checked) { // Check if visible, 0% if not.
-    const secBarWidth = (Number(sec) / 59) * 100;
-    dtdisplay.secondsBar.style.width = `${secBarWidth}%`;
-} else {
-    dtdisplay.secondsBar.style.width = '0%';
-}
-```
-
-The width is calculated by dividing the current seconds by 59.  
-**Why not 60**? If the number of seconds is divided by 60, the bar will never reach 100% width since a clock never displays 60, only 0-59.
+{: .note }
+> The custom note will also reflect any changes to [font customization](/docs/fontcustomization). However, font size is not applied to the custom note.
+>
+> The custom note can be exported along with your other settings.
 
 <hr>
 
@@ -190,11 +194,13 @@ The Time Refresh Method checkbox lets you toggle between two methods of updating
 1. Default: The clock attempts to automatically sync with the system time by the second.
 2. Legacy Refresh Method: The clock refreshes on a set interval, every 250 milliseconds.
 
-**Why is this an option?** The new, default method of updating and syncing the time can be accurate, but it is dependent on the browser's ability to keep the interval consistent. If it isn't, such as on Firefox or non-Chromium-based browsers, the time may update erratically.
+**Why is this an option?** The new method of updating the time can be more accurate, but it depends on the browser's ability to keep a consistent interval, which browsers like Firefox struggle with.
 
 **The legacy method,** on the other hand, maintains accuracy up to 250 milliseconds, updating much more frequently at the cost of slightly increasing CPU usage.
 
-Here's a look into the underlying code:
+<hr>
+
+Here's a look into the underlying code which is responsible with updating the clock display:
 ```ts
 // Sync clock to system time function
 let clockInterval: NodeJS.Timeout | null = null; // Variable to store the interval ID
@@ -227,7 +233,7 @@ function startNewClock() {
         clockInterval = setInterval(() => {
             updateTime();
             updatePageDuration();
-            logConsole('Time and page duration updated...', 'info');
+            logConsole('Time, date, and page duration updated...', 'info');
 
             const now = Date.now();
             const elapsed = now - lastUpdateTime;
@@ -252,7 +258,7 @@ function startOldClock() {
     clockInterval = setInterval(() => {
         updateTime();
         updatePageDuration();
-        logConsole('Time and page duration updated (Legacy method)...', 'info');
+        logConsole('Time, date, and page duration updated (Legacy method)...', 'info');
     }, timeRefresh) as unknown as NodeJS.Timeout;
 }
 ```

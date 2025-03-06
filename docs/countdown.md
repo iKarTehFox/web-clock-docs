@@ -34,63 +34,8 @@ The countdown panel allows you to set a timer for any specified amount of time u
  - <span style="color: #ffc107;">**Pause:**</span> Pauses the countdown timer if it is currently running.
  - <span style="color: #dc3545;">**Reset:**</span> Stops and resets the countdown timer to 00:00:00.
 
-After the countdown has finished, a green popup will appear at the bottom right notifying you that the countdown has finished.
+4. **Notification toggle**
+ - Enables the website to post a notification when the countdown finishes. This requires notifications to be allowed in your browser.
 
-![A screenshot of the page with a green toast notification at the bottom right with the text "Countdown finished!"](/assets/images/docs-Features/countdown/toast.png)
-
-## Closing behavior
-The code below shows which elements, if clicked on, will close the countdown panel. Pressing <kbd>Esc</kbd> will close all panels currently open.
-
-When closed, the countdown will continue to run in the background.
-
-```ts
-// Click outside to close countdown
-document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('click', function(e) {
-        const target = e.target as HTMLElement;
-        const isMenuRelated = menu.options.contains(target) || 
-                                   menu.obutton.contains(target) || 
-                                   menu.cbutton.contains(target) || 
-                                   countdown.container.contains(target) || 
-                                   countdown.obutton.contains(target);
-        const isCountdownVisible = countdown.container.style.display !== 'none';
-        const isTooltip = target.closest('.tooltip') !== null;
-        const isCardOverlay = target.closest('[data-overlay="card-overlay"]') !== null;
-        const isScannerOverlay = target.closest('[data-overlay="scanner-overlay"]') !== null;
-
-        if (!isMenuRelated && !isTooltip && !isCardOverlay && !isScannerOverlay && isCountdownVisible) {
-            countdown.container.style.display = 'none';
-            countdown.obutton.className = 'btn btn-secondary';
-            logConsole('Countdown panel closed', 'info');
-        }
-    });
-});
-
-// Esc down to close countdown
-document.addEventListener('keydown', function(e) {
-    const isCountdownVisible = countdown.container.style.display !== 'none';
-    const isCardOverlayVisible = document.querySelector('[data-overlay="card-overlay"]') !== null;
-    const isScannerOverlayVisible = document.querySelector('[data-overlay="scanner-overlay"]') !== null;
-
-    if (e.key === 'Escape' && isCountdownVisible && !isCardOverlayVisible && !isScannerOverlayVisible) {
-        countdown.container.style.display = 'none';
-        countdown.obutton.className = 'btn btn-secondary';
-        logConsole('Countdown panel closed', 'info');
-    }
-});
-```
-The following table shows which elements, if clicked on, will close the countdown panel.  
-Essentially, the countdown panel will only close if the stopwatch panel is opened, or if the user clicks outside the countdown panel.
-
-| Element clicked | Will close countdown panel? |
-| --- | --- |
-| Countdown close button | ✅ |
-| Stopwatch open button | ✅ |
-| Outside area | ✅ |
-| Menu open button | ❌ |
-| Menu close button | ❌ |
-| Menu panel | ❌ |
-| Card overlay | ❌ |
-| QR Scanner overlay | ❌ |
-
-The menu opens and closes independently of the countdown panel, and will never close the countdown panel when interacted with.
+   {: .tip }
+   After the countdown finishes, a toast will appear in the bottom right indication that the countdown has elapsed. With notifications enabled, the toast will have its duration decreased.

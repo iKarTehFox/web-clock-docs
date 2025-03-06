@@ -22,7 +22,7 @@ The mode radio buttons let you choose between the Color Fade, Solid, and Custom 
 ![A screenshot of the Background Color Mode radio buttons.](/assets/images/docs-Features/backgroundtheme/colormode.png)
 
 #### Color Fade
-In this mode, the background color fades between a preset list of colors, with a default <a href='#color-transition'>interval</a> of 2.8 seconds.  
+In this mode, the background color fades between a preset list of colors, with a default <a href='#current-color-and-transition'>interval</a> of 2.8 seconds.  
 In order, these colors are: 
 - `#FFC0CB` - <span style="color: #FFC0CB; font-weight: bolder;">Pink</span>
 - `#FFD700` - <span style="color: #FFD700; font-weight: bolder;">Gold</span>
@@ -39,7 +39,7 @@ In order, these colors are:
 
 This is the function that handles the Color Fade mode:
 ```ts
-function startColorFade() {
+export function startColorFade() {
     logConsole('Color fade started', 'info');
     const colors = {
         'Pink': '#FFC0CB',
@@ -78,7 +78,7 @@ function startColorFade() {
 
 #### Solid
 When Solid mode is selected, you can choose between 33 preset background colors.  
-Here are the list of preset colors: (<a href='#custom-image'>Skip to Custom Image section</a>)
+Here's the list of all the built-in preset colors: (<a href='#image'>Skip to Image section</a>)
 ##### Basic Colors
 - `#FF0000` - <span style="color: #FF0000; font-weight: bolder;">Basic red</span>
 - `#FFA500` - <span style="color: #FFA500; font-weight: bolder;">Basic orange</span>
@@ -136,10 +136,12 @@ menu.presetcolors.forEach((radio) => {
         // Set the text color based on the background luminance
         if (luminance > 0.62 && isTextColorOverride === 0) {
             dtdisplay.ccontainer.style.color = '#212529'; // Set black text color
-            dtdisplay.secondsBar.style.backgroundColor = '#212529';
+            dtdisplay.timeBar.style.backgroundColor = '#212529';
+            doc.cnote.style.color = '#212529';
         } else if (isTextColorOverride === 0) {
             dtdisplay.ccontainer.style.color = '#FFF'; // Set white text color
-            dtdisplay.secondsBar.style.backgroundColor = '#FFF';
+            dtdisplay.timeBar.style.backgroundColor = '#FFF';
+            doc.cnote.style.color = '#FFF';
         }
     });
 });
@@ -158,8 +160,8 @@ function getLuminance(color: string): number {
 }
 ```
 
-#### Custom Image
-You can also set a custom image as the background. You can use whatever image file type is supported by the `data:image` URI scheme, including but not limited to PNG, JPG, and GIF.
+#### Image
+Here you can set a custom image as the background. You can use whatever image file type is covered by the `data:image` URI scheme, including but not limited to PNG, JPG, and GIF. (Yes, you can set an animated background!)
 
 ![A screenshot of the Custom Image section in the Background Color Mode section of the menu.](/assets/images/docs-Features/backgroundtheme/customimage.png)
 
@@ -175,22 +177,24 @@ Because of the way the blur effect is rendered, it may cause the page to **conti
 <hr>
 
 ### Current Color and Transition
-The Current Color badge dynamically shows the current background color set. It will change during Color Fade mode, and when a preset color is manually selected.
+The Current Color badge shows the hex value of the current background color. It will change when the Color Fade mode is enabled and when a preset color is manually selected.
 
-The Color Transition slider lets you set the duration of the [CSS transition property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) when the background color changes. It defaults to 2.8 seconds, but can be changed to a value between 0 and 3 seconds. Just like the Current Color badge, the transition is visible when using the Color Fade mode or when a preset color is manually selected.
+The Color Transition slider lets you set the duration of the [CSS transition property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) when the background color changes. It defaults to 2.8 seconds, but can be changed to any value between 0 and 3 seconds.
+
+Just like the Current Color badge, the transition is visible when using the Color Fade mode or when a preset color is chosen.
 
 ![A screenshot of the Color Transition section of the menu.](/assets/images/docs-Features/backgroundtheme/colortransition.png)
 
 The maximum value of 3 seconds is to prevent the transition from being too long, as the Color Fade mode changes colors every 3 seconds.
 
 {: .note }
-Changing the value of the Color Transition slider will not change the interval of the Color Fade mode. It is always locked to 3 seconds.
+Changing the value of the Color Transition slider will **not** change the interval of the Color Fade mode. It is always locked to 3 seconds.
 
 <hr>
 
 ### Text Color
-The Text Color Override radio buttons and the Text Color picker lets you change the color of the clock display. They are only visible when in Solid or Custom Image mode.
+The Text Color Override and the Text Color picker options let you change the color of the clock display. They are only visible when in Solid or Custom Image mode.
 
 ![A screenshot of the Text Color Override section of the menu.](/assets/images/docs-Features/backgroundtheme/textcolor.png)
 
-When using a custom image, the Text Color Override is forced on, but can be toggled in Solid mode.
+Text Color Override is forced enabled when in Image mode, but can be freely toggled in Solid mode.

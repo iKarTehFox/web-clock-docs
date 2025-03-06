@@ -72,79 +72,11 @@ Font sizes are measured in viewport width units (vw). The larger the screen, the
 ### Text Effects
 The included text effects let you add a shadow or colored stroke outline to the time and date.
 
+![A screenshot of the Text Effects menu options.](/assets/images/docs-Features/fontcustomization/texteffects.png)
+
 ![An example of the use of text effects. A 12px drop shadow and a gray, 3px wide stroke outline is added.](/assets/images/docs-Features/fontcustomization/texteffects-example.png)
 
-This functionality is built into CSS and can be enabled by using the `text-shadow` and `-webkit-text-stroke` CSS style attributes.
-
-Here's how it works, along with the function that handles font styling:
-
-```ts
-// Font text shadow listener
-font.shadowrange.addEventListener('input', function() {
-    const value = Number(this.value);
-    const opacity = value / 5;
-    const strength = value * 3;
-    const dropShadowValue = `5px 5px ${strength}px rgba(0, 0, 0, ${opacity})`;
-    font.shadowlabel.textContent = `Drop shadow: ${strength}px`;
-
-    dtdisplay.ccontainer.style.textShadow = value > 0 ? dropShadowValue : '';
-    logConsole(`Font text shadow set to: ${dropShadowValue}`, 'info');
-});
-
-// skipping over some irrelevant code...
-
-const fontSizeOptions: Record<FontSizeKey, string> = {
-    '6vw': '1vw',
-    '8vw': '1.25vw',
-    '10vw': '1.5vw',
-    '12vw': '2vw',
-    '14vw': '2.25vw',
-    '18vw': '3vw'
-};
-
-// Font style handler function
-function modifyFontStyle(type: string, value: string) {
-    const fontSize = value as FontSizeKey;
-    match(type)
-        .with('style', () => {
-            dtdisplay.ccontainer.style.fontStyle = value;
-            stopwatch.display.style.fontStyle = value;
-            countdown.display.style.fontStyle = value;
-            logConsole(`Font style set to: ${value}`, 'info');
-        })
-        .with('weight', () => {
-            dtdisplay.ccontainer.style.fontWeight = value;
-            stopwatch.display.style.fontWeight = value;
-            countdown.display.style.fontWeight = value;
-            logConsole(`Font weight set to: ${value}`, 'info');
-        })
-        .with('size', () => {
-            if (fontSize in fontSizeOptions) {
-                dtdisplay.ccontainer.style.fontSize = value;
-                dtdisplay.indicatorSlot.style.fontSize = fontSizeOptions[fontSize];
-                dtdisplay.date.style.fontSize = fontSizeOptions[fontSize];
-                logConsole(`Font sizing set to: ${value}`, 'info');
-            } else {
-                logConsole(`Invalid font size: ${value}`, 'error');
-            }
-        })
-        .with('family', () => {
-            dtdisplay.ccontainer.style.fontFamily = value;
-            countdown.display.style.fontFamily = value;
-            logConsole(`Font family set to: ${value}`, 'info');
-        })
-        .with('strokewidth', () => {
-            dtdisplay.ccontainer.style.webkitTextStrokeWidth = `${value}px`;
-            font.strokerangelabel.textContent = `Stroke width: ${value}px`;
-            logConsole(`Font stroke width set to: ${value}px`, 'info');
-        })
-        .with('strokecolor', () => {
-            dtdisplay.ccontainer.style.webkitTextStrokeColor = value;
-            font.strokecolorlabel.textContent = `Stroke color: ${value}`;
-            logConsole(`Font stroke color set to: ${value}`, 'info');
-        })
-        .otherwise(() => {
-            logConsole(`Invalid font modification type: ${type}`, 'error');
-        });
-}
-```
+{: .tip-title }
+> Dev tip
+>
+> This functionality is built into CSS and can be enabled by using the `text-shadow` and `-webkit-text-stroke` CSS style attributes.

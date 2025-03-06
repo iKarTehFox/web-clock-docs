@@ -28,7 +28,7 @@ The Menu Theme radio buttons allow you to change the theme of the menu panel, ei
 | --- | --- |
 | ![A screenshop of the page with Light theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-light.png) | ![A screenshop of the page with Dark theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-dark.png) |
 
-Here's how the `data-bs-theme` attribute gets modified. To avoid breaking everything, it gets applied on a per-container basis:
+Here's how the `data-bs-theme` attribute gets modified. To avoid breaking everything, it gets applied on a per-element container basis:
 
 ```ts
 // Menu theme listener
@@ -37,8 +37,6 @@ menu.themeradio.forEach((radio) => {
         match(radio.id)
             .with('lightthememode', () => {
                 menu.container.dataset.bsTheme = 'light';
-                menu.options.style.backgroundColor = '#ffffff';
-                menu.options.style.color = '#212529';
                 // Weather container
                 weather.container.dataset.bsTheme = 'light';
                 weather.container.style.color = '#212529';
@@ -57,8 +55,6 @@ menu.themeradio.forEach((radio) => {
             })
             .with('darkthememode', () => {
                 menu.container.dataset.bsTheme = 'dark';
-                menu.options.style.backgroundColor = '#313539';
-                menu.options.style.color = '#fff';
                 // Weather container
                 weather.container.dataset.bsTheme = 'dark';
                 weather.container.style.color = '#fff';

@@ -21,6 +21,9 @@ The following errors are a result of a JSON settings file failing verification. 
 
 ![A screenshot of the invalid version error popup in Mozilla Firefox.](/assets/images/docs-Troubleshooting/import-version-firefox.png)
 
+{: .tip }
+There is a possibility that you can manually edit your JSON settings file to fix this error. If you'd like to take your chances, refer to the [Import and Export](/docs/importexport#base-keys) page regarding this.
+
 ### Invalid value of [key]: [value]
 **Reason**: A subkey was found with an invalid or disallowed value.  
 **Solution**: Review the error to fix your settings file, or export a new settings file.
@@ -63,6 +66,6 @@ Iconify MDI icons are used in a few places on the website, such as the menu pane
 The weather widget also uses Iconify icons, but there is no fallback as the weather widget is not displayed if there is no internet connection.
 
 ### Weather widget
-In order to enable the weather widget, you need an active internet connection. If connection to the OpenWeatherMap API fails, the weather widget will not be displayed, and an error **will not** be displayed.
+In order to enable the weather widget, you need an active internet connection. If the connection to the OpenWeatherMap API fails, the weather widget will not be enabled and an error **will not** be displayed. This behavior may be changed in the future.
 
-Additionally, the widget will be hidden and disabled if connection is lost between its automatic refresh.
+Additionally, the widget will be hidden and disabled if connection is lost when it automatically refreshes.
