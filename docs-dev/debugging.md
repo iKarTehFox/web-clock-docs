@@ -2,7 +2,7 @@
 title: Debugging
 layout: default
 parent: Features (Development)
-nav_order: 2
+nav_order: 1
 ---
 # Debugging
 {: .no_toc}
