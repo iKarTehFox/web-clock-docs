@@ -27,6 +27,9 @@ When using the 24-hour clock mode, the AM/PM indicator is hidden.
 | --- | --- |
 | ![A screenshot of the clock in 12-hour clock mode](/assets/images/docs-Features/datetime/12h.png) | ![A screenshot of the clock in 24-hour clock mode](/assets/images/docs-Features/datetime/24h.png) |
 
+{: .tip }
+As of version 1.6.0, the clock mode is set automatically based on your system's current setting.
+
 <hr>
 
 ### Time Zone
