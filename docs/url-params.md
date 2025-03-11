@@ -18,14 +18,14 @@ In Online Web Clock, you can use URL Parameters to directly pass options into th
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+| autoRestart | integer | Refreshes the page after `<integer>` seconds (min `15`, max `86400`) |
 | debugMode | boolean | Enables debug logging and Debugging menu options |
-| darkMode | boolean | Enables dark mode |
 | fastRefresh | boolean | Enables fast refresh mode (1ms update interval)<br>*Only applicable when using [Legacy Refresh method](/docs/datetime#time-refresh-method)* |
+| lockSettings | boolean | Prevents end-user settings modification |
+| menuTheme | string | Sets the menu theme (either `light` or `dark`)<br>Will be automatically set if not provided |
 | panelVis | boolean | Toggles panel buttons visibility |
 | preset | filename | Load the `<filename>` JSON preset file from `/assets/` |
 | tabTitle | boolean | Toggles tab title clock display |
-| autoRestart | integer | Refreshes the page after `<integer>` seconds (min `15`, max `86400`) |
-| lockSettings | boolean | Prevents end-user settings modification |
 
 #### MORE INFO
 **How do I load my custom preset file?** Download or build the site, and serve locally. You can place your own preset JSON files in the `/assets/` directory, then specify the filename in the URL parameter! 

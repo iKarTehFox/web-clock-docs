@@ -28,6 +28,9 @@ The Menu Theme radio buttons allow you to change the theme of the menu panel, ei
 | --- | --- |
 | ![A screenshop of the page with Light theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-light.png) | ![A screenshop of the page with Dark theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-dark.png) |
 
+{: .note }
+The theme is automatically set based on your system's color scheme.
+
 Here's how the `data-bs-theme` attribute gets modified. To avoid breaking everything, it gets applied on a per-element container basis:
 
 ```ts
