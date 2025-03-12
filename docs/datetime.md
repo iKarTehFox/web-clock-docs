@@ -110,10 +110,12 @@ These Display Systems are more geared towards tech-savvy users. They provide you
 <hr>
 
 ### Time Bar
-The time bar is a new addition which replaces the legacy Seconds Bar. It is a wide horizontal bar that displays the progress of time. It's width increases as time passes according to the chosen setting.
+The time bar is a new addition which replaces the legacy Seconds Bar. It is a wide horizontal bar that displays the progress of time. It's width increases as time progresses according to the chosen setting.
 
 {: .tip }
-You cannot enable the Time Bar if a border style is selected.
+You cannot enable the Time Bar if a [border style](#border-style) is selected.
+
+![A screenshot of the Time Bar dropdown menu with "Off" selected](/assets/images/docs-Features/datetime/timebar.png)
 
 | Setting | Description |
 | --- | --- |
@@ -122,8 +124,6 @@ You cannot enable the Time Bar if a border style is selected.
 | Day progress | Displays the progress through the day.<br>**Example:** If it is 6:00 PM (18:00), the bar will be 75% full. |
 | Hour progress | Displays the progress through the hour.<br>**Example:** If it is 15 minutes into the hour, the bar will be 25% full. |
 | Seconds | Displays the progress through the minute.<br>**Example:** If it is 15 seconds into the minute, the bar will be 25% full. |
-
-![A screenshot of the Time Bar dropdown menu with "Off" selected](/assets/images/docs-Features/datetime/timebar.png)
 
 <hr>
 
@@ -134,7 +134,7 @@ If you prefer a different date format other than the default, you can change tha
 
 The table below lists the different tokens Luxon uses for each date format:
 
-| Date format token | Description |
+| Luxon format token | Description |
 | --- | --- |
 | D | Localized numeric date (3/1/2025) |
 | DD | Localized date with abbreviated month (Mar 1, 2025) |
@@ -161,7 +161,7 @@ You can set the border style of the clock to give it a sort of "frame" around th
 By default, there is no border style selected. You can change the border style to "Box" or "Bottom", both of which have the "Solid", "Dashed", "Dotted", and "Double" options.
 
 {: .tip }
-You cannot select a border style if the "Time Bar" is enabled.
+You cannot select a border style if the [Time Bar](#time-bar) is enabled.
 
 ![A screenshot of the Border Style radio buttons with "Box" and "Solid" selected](/assets/images/docs-Features/datetime/borderstyle.png)
 
