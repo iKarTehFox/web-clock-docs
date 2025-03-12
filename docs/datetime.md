@@ -142,7 +142,7 @@ The table below lists the different tokens Luxon uses for each date format:
 | DDDD | Localized date with full month and weekday (Saturday, March 1, 2025) |
 | Off | The date is hidden |
 
-![The date displayed using the "DDDD" date format. The date (3/1/2025) is shown as "Saturday, March 1, 2025".](/assets/images/docs-Features/datetime/datedisplay-dddd.png)
+![The date displayed using the "DDDD" date format. The date (3/1/2025) is shown as "Saturday, March 1, 2025".](/assets/images/docs-Features/datetime/datedisplay-DDDD.png)
 
 <hr>
 
@@ -195,11 +195,11 @@ The Time Refresh Method checkbox lets you toggle between two methods of updating
 ![A screenshot of the Time Refresh Method checkbox. It is currently unchecked](/assets/images/docs-Features/datetime/timerefreshmethod.png)
 
 1. Default: The clock attempts to automatically sync with the system time by the second.
-2. Legacy Refresh Method: The clock refreshes on a set interval, every 250 milliseconds.
+2. Legacy Refresh Method: The clock refreshes on a set interval, every 100 milliseconds.
 
 **Why is this an option?** The new method of updating the time can be more accurate, but it depends on the browser's ability to keep a consistent interval, which browsers like Firefox struggle with.
 
-**The legacy method,** on the other hand, maintains accuracy up to 250 milliseconds, updating much more frequently at the cost of slightly increasing CPU usage.
+**The legacy method,** on the other hand, maintains accuracy up to 100 milliseconds, updating much more frequently at the cost of slightly increasing CPU usage.
 
 <hr>
 
