@@ -62,7 +62,7 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 | dateAlign | `dpoL`, `dpoC`, `dpoR` | Alignment of the date |
 | borderMode | `btyD`, `btyR`, `btyB` | Type of border, such as bottom, box, or disabled |
 | borderStyle | `solid`, `dashed`, `dotted`, `double` | Style of the border |
-| timebar | `tbarWeekday`, `tbarMonth`, `tbarDay`, `tbarHour`, `tbarSec`, `tbarNone` | Type of time bar display |
+| timeBar | `tbarWeekday`, `tbarMonth`, `tbarDay`, `tbarHour`, `tbarSec`, `tbarNone` | Type of time bar display |
 | customNote | `string` | Custom note text to display |
 | customNoteAlign | `nalT`, `nalB` | Alignment of the custom note |
 
