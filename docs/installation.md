@@ -21,7 +21,7 @@ This page will guide you through the installation process. You may choose to man
 ## Downloading the website
 
 ### Cloning the repository (Method 1)
-To start off, you'll first need to download (or "clone") the website's files.
+To start off, you'll first need to download (or "clone") Online Web Clock's source code.
 
 1. Ensure you have Git installed on your PC
  - If you're on Ubuntu or a Debian-based distro, you can install Git with the following command:  
@@ -58,7 +58,10 @@ To build the website, you'll first need to install the dependencies.
 ## Serving the website
 After you have downloaded or built the website, you can now serve it locally.
 
-If you are using Node.js, you can use `http-server` to serve the website.
+{: .important }
+Ensure you have a tool to serve the website (e.g. Node.js `http-server`, Python `http.server`, etc.). Double-clicking the `index.html` file will **<span style="color: red;">NOT</span>** work!
+
+With Node.js, you can use the `http-server` command to serve the website.
 1. Install `http-server` by running `npm install -g http-server`
 2. Run `http-server -p 80 ./dist` to serve the website on port 80 (or whatever port you want)
  - If you downloaded a pre-built version, simply run `http-server -p 80` instead.
