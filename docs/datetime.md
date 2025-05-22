@@ -130,17 +130,29 @@ You cannot enable the Time Bar if a [border style](#border-style) is selected.
 ### Date Display
 If you prefer a different date format other than the default, you can change that here. Each option is localized based on your browser's locale and updates automatically as the date changes.
 
+The dropdown is grouped by Localized and standard formats, the latter of which do not change based on the locale.
+
 ![A screenshot of the Date Display dropdown menu with the first option selected](/assets/images/docs-Features/datetime/datedisplay.png)
 
 The table below lists the different tokens Luxon uses for each date format:
 
 | Luxon format token | Description |
 | --- | --- |
+| **Localized** |
 | D | Localized numeric date (3/1/2025) |
 | DD | Localized date with abbreviated month (Mar 1, 2025) |
 | DDD | Localized date with full month (March 1, 2025) |
 | DDDD | Localized date with full month and weekday (Saturday, March 1, 2025) |
-| Off | The date is hidden |
+| **Standard** |
+| MMMM d | Full month and day (March 1) |
+| MMM d | Abbreviated month and day (Mar 1) |
+| d MMMM | Day and full month (1 March) |
+| d MMM | Day and abbreviated month (1 Mar) |
+| MMMM yyyy | Full month and year (March 2025) |
+| yyyy | Year (2025) |
+| 'Q'q, yyyy | Quarter and year (Q1, 2025) |
+| 'Day' o 'of' yyyy | Day of year (Day 60 of 2025) |
+| 'Week' W, 'Day' o | Week number and day of year (Week 9, Day 60) |
 
 ![The date displayed using the "DDDD" date format. The date (3/1/2025) is shown as "Saturday, March 1, 2025".](/assets/images/docs-Features/datetime/datedisplay-DDDD.png)
 
@@ -218,42 +230,37 @@ function startClock() {
     if (menu.legacyrefreshcheckbox.checked) {
         startOldClock();
     } else {
-        startNewClock();
+        startExperimentalClock();
     }
 }
 
-// Function to start the new clock method
-function startNewClock() {
-    const timeToNextSecond = 1000 - Number(getLuxNow('millis')) % 1000;
-
-    setTimeout(() => {
-        updateTime();
-        updatePageDuration();
-
-        // Start the regular interval updates
-        let lastUpdateTime = Date.now();
-
-        clockInterval = setInterval(() => {
+// Function to start experimental clock
+function startExperimentalClock() {
+    // Initial update
+    updateTime();
+    updatePageDuration();
+    logConsole('Experimental clock started...', 'info');
+    
+    // Function to schedule the next update
+    function scheduleNextUpdate() {
+        // Calculate time to next second
+        const timeToNextSecond = 1000 - Number(getLuxNow('millis')) % 1000;
+        
+        // Schedule next update
+        clockInterval = setTimeout(() => {
+            // Update the clock
             updateTime();
             updatePageDuration();
-            logConsole('Time, date, and page duration updated...', 'info');
 
-            const now = Date.now();
-            const elapsed = now - lastUpdateTime;
-            lastUpdateTime = now;
-
-            const drift = elapsed - 1000;
-
-            // Add a maximum drift threshold, e.g. 1000ms
-            const cappedDrift = Math.max(Math.min(drift, 1000), -1000);
-
-            if (Math.abs(drift) > 150) {
-                logConsole(`Time drift detected: ${drift > 0 ? '+':''}${drift}ms.${Math.abs(drift) > 1000 ? ` Capped to ${cappedDrift}ms` : ''}`, 'debug');
-                clearInterval(clockInterval!);
-                setTimeout(startNewClock, 1000 - cappedDrift);
-            }
-        }, 1000);
-    }, timeToNextSecond);
+            logConsole('Time, date, and page duration updated... (Experimental method)', 'debug');
+            
+            // Schedule the next update
+            scheduleNextUpdate();
+        }, timeToNextSecond);
+    }
+    
+    // Start the scheduling loop
+    scheduleNextUpdate();
 }
 
 // Function to start the old clock method
@@ -261,7 +268,7 @@ function startOldClock() {
     clockInterval = setInterval(() => {
         updateTime();
         updatePageDuration();
-        logConsole('Time, date, and page duration updated (Legacy method)...', 'info');
+        logConsole('Time, date, and page duration updated... (Legacy method)', 'info');
     }, timeRefresh) as unknown as NodeJS.Timeout;
 }
 ```

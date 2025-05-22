@@ -73,3 +73,13 @@ These buttons let you test the toast notifications and their different themes.
 When clicked, the buttons will spawn a Toastify toast with the corresponding theme. The default duration of 3 seconds is used.
 
 ![A screenshot of the Toasts debugging options.](/assets/images/docs-Development/debugging/toast.png)
+
+### UI
+The "Remove clock container" button deletes the entire clock container from the DOM. This is useful for taking clean screenshots of the clock without the time showing (such as on these documentation pages!).
+
+![A screenshot of the UI debugging options.](/assets/images/docs-Development/debugging/ui.png)
+
+### localStorage
+The "Clear localStorage" button removes all existing localStorage data for Online Web Clock. One example of its use is to see the "new update" notification after dismissing it.
+
+![A screenshot of the localStorage debugging options.](/assets/images/docs-Development/debugging/localstorage.png)

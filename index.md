@@ -19,19 +19,23 @@ Welcome to the Online Web Clock docs!
 ## Latest Updates
 See what's new for Online Web Clock:
 
-### v1.5.3 (28 January, 2025)
+### v1.7.0 (20 May, 2025)
 #### 🆕 Additions
- - Change the meta `theme-color` tag dynamically based on background color and menu theme 
-   - Depending on your platform and browser, the color changes may not be visible. Typically, the accent color change is only visible in smartphone browsers and desktop PWAs. Additionally, the color may or may not change depending on your current menu theme or system theme.
- - Add more verbosity in the form of toasts for GPS errors
- - Add new "Is it..." display methods
+- Implement i18next for multi-language (internationalization) support
+- Add aliases for URL parameters
+- Add new Midnight theme
+- Add new clock syncing function
 
 #### 🔧 Changes
- - Tweak menu container `max-height` value to ensure visibility on landscape smartphones
- - Switch to using ts-pattern's `match()` in more places
- - Increase export version to 9 and add new validation entries
+- Revamp theme selection/cycling
+- Change export buttons into split dropdown
+- Fix lockSettings not working with offcanvas
+- Fix auto menuTheme URL parameter not changing selected theme radio
+- Fix setDropShadow() not being called by import
+- Properly handle invalid URL parameter values
+- Various code improvements and optimizations
 
-Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.5.3))
+Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.7.0))
 
 <hr>
 

@@ -55,15 +55,14 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 
 | Subkey | Valid values | Description |
 | --- | --- | --- |
-| clockMode | `cmo12`, `cmo24` | The clock mode (12 or 24-hour) |
 | clockDisplay | `binary`, `octal`, `decimal`, `hexa`, `emoji`, `roman`, `words`, `unixmillis`, `unixsec`, `unixcountdown`, `se_valentines`, `se_christmas`, `se_newyears`, `ii_christmas`, `ii_weekend`, `ii_leapyear` | Clock display system |
 | secondsVis | `sviD`, `sviN` | Whether to display the seconds |
-| dateFormat | `D`, `DD`, `DDD`, `DDDD`, **unset** | Format token for the date |
+| dateFormat | `D`, `DD`, `DDD`, `DDDD`, `MMMM d`, `MMM d`, `d MMMM`, `d MMM`, `MMMM yyyy`, `yyyy`, `\'Q\'q, yyyy`, `\'Day\' o \'of\' yyyy`, `\'Week\' W`, `\'Day\' o`, **unset** | Format token for the date |
 | dateAlign | `dpoL`, `dpoC`, `dpoR` | Alignment of the date |
 | borderMode | `btyD`, `btyR`, `btyB` | Type of border, such as bottom, box, or disabled |
 | borderStyle | `solid`, `dashed`, `dotted`, `double` | Style of the border |
 | timeBar | `tbarWeekday`, `tbarMonth`, `tbarDay`, `tbarHour`, `tbarSec`, `tbarNone` | Type of time bar display |
-| customNote | `string` | Custom note text to display |
+| customNote | \<String\> | Custom note text to display |
 | customNoteAlign | `nalT`, `nalB` | Alignment of the custom note |
 
 {: .info }
