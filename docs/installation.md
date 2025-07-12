@@ -1,7 +1,7 @@
 ---
 title: Installation Guide
 layout: default
-nav_order: 2
+nav_order: 3
 ---
 # Installation Guide
 {: .no_toc}

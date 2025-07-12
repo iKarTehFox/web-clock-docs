@@ -13,8 +13,9 @@ Welcome to the Online Web Clock docs!
 
 ## Quick Access
 
+- 📷 [Gallery](/docs-gallery)
 - 📖 [Features](/docs)
-- 💡 [Troubleshooting](/docs/troubleshooting)
+- 💡 [Troubleshooting](/troubleshooting)
 
 ## Latest Updates
 See what's new for Online Web Clock:
