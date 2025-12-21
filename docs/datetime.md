@@ -33,31 +33,23 @@ As of version 1.6.0, the clock mode is set automatically based on your system's 
 <hr>
 
 ### Time Zone
-Customize your clock's timezone with this dropdown menu. By default, your current time zone is selected.
+You can adjust the clock display's timezone with this dropdown. By default, your current time zone is selected.
 
 ![A screenshot of the Time Zone dropdown menu with "America/New York" selected](/assets/images/docs-Features/datetime/timezone.png)
 
 The dropdown menu is automatically populated with the time zones your browser supports via `Intl.supportedValuesOf('timeZone')`.
 
-```ts
-// Function to get the list of time zones and group them by region
-function getTimeZonesByRegion() {
-    const timeZones = (Intl as any).supportedValuesOf('timeZone');
-    const timeZoneGroups: { [key: string]: string[] } = {};
-  
-    timeZones.forEach((timeZone) => {
-        const [region] = timeZone.split('/');
-      
-        if (!timeZoneGroups[region]) {
-            timeZoneGroups[region] = [];
-        }
-  
-        timeZoneGroups[region].push(timeZone);
-    });
-  
-    return timeZoneGroups;
-}
-```
+<hr>
+
+### Timezone Windows
+New in v1.8.0
+{: .label .label-purple }
+
+The Timezone Windows option lets you enable up to two draggable windows that display the current time in different time zones.
+
+![A screenshot of the Timezone Windows dropdown menu with "Off" selected](/assets/images/docs-Features/datetime/timezone-windows.png)
+
+When creating a new window, the currently selected **font family** and **timezone** is used for that window. These settings are static and will persist for that window even if you change the main clock's settings later on.
 
 <hr>
 
@@ -65,8 +57,6 @@ function getTimeZonesByRegion() {
 This menu allows you to change how the clock is displayed, offering different radix systems, conversions, and a few experimental options.
 
 ![A screenshot of the Display System dropdown menu with "Decimal (Base 10)" selected](/assets/images/docs-Features/datetime/displaysystem.png)
-
-<hr>
 
 #### Radix Systems
 Choosing a different radix system will change the number of digits used to represent numbers:
@@ -81,10 +71,7 @@ Choosing a different radix system will change the number of digits used to repre
 
 ![The time displayed using the Binary (Base 2) radix system. The time (4:30:15 PM) is shown as "100:11110:1111 PM".](/assets/images/docs-Features/datetime/displaysystem-binary.png)
 
-<hr>
-
 #### Conversions
-Conversions give you fun ways to display the time:
 
 | Conversion | Description |
 | --- | --- |
@@ -94,16 +81,16 @@ Conversions give you fun ways to display the time:
 
 ![The time displayed using the Roman Numeral Conversion system. The time (4:30:15) is shown as "IV:XXX:XV".](/assets/images/docs-Features/datetime/displaysystem-romannumeral.png)
 
-<hr>
-
 #### Technical
-These Display Systems are more geared towards tech-savvy users. They provide you with accurate Unix timestamps. 
 
 | Technical Display System | Description |
 | --- | --- |
 | Unix timestamp (Milliseconds) | Displays the time as the number of milliseconds since the Unix epoch. |
 | Unix timestamp (Seconds) | Displays the time as the number of seconds since the Unix epoch. |
 | Time until Y2K38 problem | Displays remaining time until Y2K38 problem, where computers representing time with a signed 32-bit integer will overflow after 3:14:07 UTC on January 19, 2038 and likely explode. |
+
+{: .note }
+Although the "Unix Timestamp (Milliseconds)" option exists, the clock display will only ever update once every second.
 
 ![The time displayed using the Unix timestamp (Milliseconds) experimental display system. The date (March 1, 2025 at 4:30:15 PM) is shown as "1740868215000".](/assets/images/docs-Features/datetime/displaysystem-unixmillis.png)
 
@@ -198,77 +185,3 @@ You may add a custom note to the page. It can hold any text within 75 characters
 > The custom note will also reflect any changes to [font customization](/docs/fontcustomization). However, font size is not applied to the custom note.
 >
 > The custom note can be exported along with your other settings.
-
-<hr>
-
-### Time Refresh Method
-The Time Refresh Method checkbox lets you toggle between two methods of updating the time. By default, this is unchecked.
-
-![A screenshot of the Time Refresh Method checkbox. It is currently unchecked](/assets/images/docs-Features/datetime/timerefreshmethod.png)
-
-1. Default: The clock attempts to automatically sync with the system time by the second.
-2. Legacy Refresh Method: The clock refreshes on a set interval, every 100 milliseconds.
-
-**Why is this an option?** The new method of updating the time can be more accurate, but it depends on the browser's ability to keep a consistent interval, which browsers like Firefox struggle with.
-
-**The legacy method,** on the other hand, maintains accuracy up to 100 milliseconds, updating much more frequently at the cost of slightly increasing CPU usage.
-
-<hr>
-
-Here's a look into the underlying code which is responsible with updating the clock display:
-```ts
-// Sync clock to system time function
-let clockInterval: NodeJS.Timeout | null = null; // Variable to store the interval ID
-
-// Function to start the clock based on the selected method
-function startClock() {
-    // Clear any existing interval
-    if (clockInterval) {
-        clearInterval(clockInterval);
-    }
-
-    if (menu.legacyrefreshcheckbox.checked) {
-        startOldClock();
-    } else {
-        startExperimentalClock();
-    }
-}
-
-// Function to start experimental clock
-function startExperimentalClock() {
-    // Initial update
-    updateTime();
-    updatePageDuration();
-    logConsole('Experimental clock started...', 'info');
-    
-    // Function to schedule the next update
-    function scheduleNextUpdate() {
-        // Calculate time to next second
-        const timeToNextSecond = 1000 - Number(getLuxNow('millis')) % 1000;
-        
-        // Schedule next update
-        clockInterval = setTimeout(() => {
-            // Update the clock
-            updateTime();
-            updatePageDuration();
-
-            logConsole('Time, date, and page duration updated... (Experimental method)', 'debug');
-            
-            // Schedule the next update
-            scheduleNextUpdate();
-        }, timeToNextSecond);
-    }
-    
-    // Start the scheduling loop
-    scheduleNextUpdate();
-}
-
-// Function to start the old clock method
-function startOldClock() {
-    clockInterval = setInterval(() => {
-        updateTime();
-        updatePageDuration();
-        logConsole('Time, date, and page duration updated... (Legacy method)', 'info');
-    }, timeRefresh) as unknown as NodeJS.Timeout;
-}
-```

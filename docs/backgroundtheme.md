@@ -17,9 +17,9 @@ The Background Theme section in the menu panel lets you personalize the backgrou
 
 ## Options
 ### Background Color Mode
-The mode radio buttons let you choose between the Color Fade, Solid, and Custom Image modes.
+The Background Color Mode dropdown menu lets you choose between the Color Fade, Solid Color, and Image modes.
 
-![A screenshot of the Background Color Mode radio buttons.](/assets/images/docs-Features/backgroundtheme/colormode.png)
+![A screenshot of the Background Color Mode dropdown menu.](/assets/images/docs-Features/backgroundtheme/colormode.png)
 
 #### Color Fade
 In this mode, the background color fades between a preset list of colors, with a default <a href='#current-color-and-transition'>interval</a> of 2.8 seconds.  
@@ -76,8 +76,8 @@ export function startColorFade() {
 }
 ```
 
-#### Solid
-When Solid mode is selected, you can choose between 33 preset background colors.  
+#### Solid Color
+When Solid Color Mode is selected, you can choose between 33 preset background colors.  
 Here's the list of all the built-in preset colors: (<a href='#image'>Skip to Image section</a>)
 ##### Basic Colors
 - `#FF0000` - <span style="color: #FF0000; font-weight: bolder;">Basic red</span>
@@ -125,45 +125,10 @@ When a preset color is selected and [Text Color Override](#text-color) is disabl
 
 Essentially, if the luminance of the selected color is greater than 62%, the text color will be set to black. Otherwise, the text color will be set to white.
 
-```ts
-// Preset color buttons listener
-menu.presetcolors.forEach((radio) => {
-    radio.addEventListener('change', () => {
-        const color = radio.dataset.color;
-        // Determine the luminance of the background color
-        const luminance = getLuminance(color as string);
-
-        // Set the text color based on the background luminance
-        if (luminance > 0.62 && isTextColorOverride === 0) {
-            dtdisplay.ccontainer.style.color = '#212529'; // Set black text color
-            dtdisplay.timeBar.style.backgroundColor = '#212529';
-            doc.cnote.style.color = '#212529';
-        } else if (isTextColorOverride === 0) {
-            dtdisplay.ccontainer.style.color = '#FFF'; // Set white text color
-            dtdisplay.timeBar.style.backgroundColor = '#FFF';
-            doc.cnote.style.color = '#FFF';
-        }
-    });
-});
-
-function getLuminance(color: string): number {
-    // Assuming color is in RGB format, convert it to relative luminance
-    const r = parseInt(color.substring(1, 3), 16) / 255;
-    const g = parseInt(color.substring(3, 5), 16) / 255;
-    const b = parseInt(color.substring(5, 7), 16) / 255;
-
-    // Calculate the relative luminance using the sRGB color space formula
-    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    logConsole(`Luminance for ${color}: ${luminance}`, 'debug');
-
-    return luminance;
-}
-```
-
 #### Image
 Here you can set a custom image as the background. You can use whatever image file type is covered by the `data:image` URI scheme, including but not limited to PNG, JPG, and GIF. (Yes, you can set an animated background!)
 
-![A screenshot of the Custom Image section in the Background Color Mode section of the menu.](/assets/images/docs-Features/backgroundtheme/customimage.png)
+![A screenshot of the Custom Image section in the Background Color Mode section of the menu.](/assets/images/docs-Features/backgroundtheme/imagemode.png)
 
 You can also mess with some sizing effects for the background image. You may choose Automatic, Cover, or Stretch, all of which are explained in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size#values).
 
@@ -172,7 +137,7 @@ The Image Blur slider lets you blur the background image, possibly to enhance cl
 ![A screenshot of the site with a custom image set and a 10px image blur range.](/assets/images/docs-Features/backgroundtheme/imageblur-example.png)
 
 {: .warning }
-Because of the way the blur effect is rendered, it may cause the page to **continuously** use more GPU resources when enabled.
+Because of the way the blur effect is rendered, it may cause the page to **continuously** use more GPU resources when enabled. Make sure you have hardware acceleration enabled! If you notice performance issues, consider lowering the blur value or disabling it entirely.
 
 <hr>
 
@@ -185,10 +150,10 @@ Just like the Current Color badge, the transition is visible when using the Colo
 
 ![A screenshot of the Color Transition section of the menu.](/assets/images/docs-Features/backgroundtheme/colortransition.png)
 
-The maximum value of 3 seconds is to prevent the transition from being too long, as the Color Fade mode changes colors every 3 seconds.
+Changing the value of the Color Transition slider will **not** change the interval of the Color Fade mode. It is limited to 3 seconds max, as that is how often the Color Fade mode cycles through colors.
 
 {: .note }
-Changing the value of the Color Transition slider will **not** change the interval of the Color Fade mode. It is always locked to 3 seconds.
+This setting is affected by your system's reduced motion preferences. If you have reduced motion enabled, the color change will be instant (no transition) regardless of this setting.
 
 <hr>
 

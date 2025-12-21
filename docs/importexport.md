@@ -6,7 +6,7 @@ nav_order: 8
 ---
 # Import and Export
 {: .no_toc }
-The Import/Export section of the menu lets you import and export your current settings to a JSON file. You can also choose built-in presets to import.
+The Import/Export section of the menu lets you import and export your currently applied settings. You can also choose built-in presets to import.
 
 ![A screenshot of the import and export menu options.](/assets/images/docs-Features/importexport/importexport.png)
 
@@ -17,30 +17,32 @@ The Import/Export section of the menu lets you import and export your current se
 
 ## Options
 ### Import settings
-There are three methods of uploading your settings, either by uploading a JSON file, scanning a QR code, pasting in the JSON manually.
+There are a few methods of uploading your settings. You can upload directly from a JSON file, scan a QR code, paste the raw JSON data into a text field, or re-import your saved settings from localStorage.
 
 ![A screenshot of the import upload button and text field upload form.](/assets/images/docs-Features/importexport/import.png)
 
 After uploading your settings, Online Web Clock will automatically verify and load all of your settings.  
-For an insight into how the site encodes, decodes, and verifies JSON settings, refer to the [code in the GitHub repository](https://github.com/iKarTehFox/web-clock/blob/prod/src/importExport.ts).
+For an insight into how the site formats and verifies JSON settings, refer to the [code in the GitHub repository](https://github.com/iKarTehFox/web-clock/blob/prod/src/importExport.ts).
 
 {: .note }
-For more info on scanning and generating QR codes, refer to [this section](#qr-codes).
+For more info on scanning and generating QR codes, skip to the [QR Codes](#qr-codes) section.
 
 ### Built-in presets
 The menu includes a few presets which you can import. They contain pre-configured settings for different themes and styles.
 
 ![A screenshot of the built-in presets buttons.](/assets/images/docs-Features/importexport/presets.png)
 
-You can also type the number next to the respective preset name to import it. For instance, you can press the number "<kbd>1</kbd>" on any screen to import the "AMOLED Theme" preset.
+You can also type the number next to the respective preset name to import it. For instance, you can press the number "<kbd>1</kbd>" on your keyboard to import the "AMOLED Theme" preset.
 
 {: .note }
 As they are not automatically preloaded, you may need an internet connection to load a preset if you are not serving the site locally and the presets are not already cached.
 
 ### Export settings
-You can export your currently selected settings to a JSON file by clicking the "Export" button, by copying the raw JSON data to your clipboard, or by generating a QR code.
+As explained above, just like with importing, you may export your settings with these same methods: downloading a JSON file, generating a QR code, copying directly to your clipboard, or saving to localStorage.
 
 ![A screenshot of the exporting buttons.](/assets/images/docs-Features/importexport/export.png)
+
+When saved locally to your browser (localStorage), your settings will be automatically imported the next time you visit the site. They can be cleared if you Ctrl+Click on this button.
 
 #### Base keys
 Below is a table of the top-level keys in the settings JSON object:
@@ -57,7 +59,7 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 | --- | --- | --- |
 | clockDisplay | `binary`, `octal`, `decimal`, `hexa`, `emoji`, `roman`, `words`, `unixmillis`, `unixsec`, `unixcountdown`, `se_valentines`, `se_christmas`, `se_newyears`, `ii_christmas`, `ii_weekend`, `ii_leapyear` | Clock display system |
 | secondsVis | `sviD`, `sviN` | Whether to display the seconds |
-| dateFormat | `D`, `DD`, `DDD`, `DDDD`, `MMMM d`, `MMM d`, `d MMMM`, `d MMM`, `MMMM yyyy`, `yyyy`, `\'Q\'q, yyyy`, `\'Day\' o \'of\' yyyy`, `\'Week\' W`, `\'Day\' o`, **unset** | Format token for the date |
+| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format option |
 | dateAlign | `dpoL`, `dpoC`, `dpoR` | Alignment of the date |
 | borderMode | `btyD`, `btyR`, `btyB` | Type of border, such as bottom, box, or disabled |
 | borderStyle | `solid`, `dashed`, `dotted`, `double` | Style of the border |
@@ -99,6 +101,29 @@ Below is a table of the subkeys of the `colorTheme` object and their valid value
 
 {: .info }
 For more info on these settings, see [Background Theme](/docs/backgroundtheme).
+
+#### timezoneWindows key
+Below is a table of the subkeys of the `timezoneWindows` object and their valid values. This object will only be present if at least one timezone window is enabled.
+
+##### tz1
+
+| Subkey | Valid values | Description |
+| --- | --- | --- |
+| timezone | \<Timezone IANA string\> | Timezone identifier |
+| clockMode | `0`, `1` | Time display mode (12-hour or 24-hour) |
+| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format option |
+| fontFamily | **unset**, \<Font name\> | Font family to set |
+| fontStyle | `normal`, `italic` | Font style (Normal or Italic) |
+| fontWeight | `light`, `normal`, `bold` | Font weight (Light, Normal, or Bold) |
+| x | \<Integer\> | X position offset |
+| y | \<Integer\> | Y position offset |
+| width | \<Integer\> | Width of the window |
+| height | \<Integer\> | Height of the window |
+
+##### tz2
+This subkey is populated only if a second timezone window is enabled. It has the same structure and valid values as `tz1`.
+
+{: .info }
 
 ### QR Codes
 Settings can be exported as a QR code, which can then be scanned from the [Import settings](#import-settings) section to import them back.

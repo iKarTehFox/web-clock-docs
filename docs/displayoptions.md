@@ -19,17 +19,24 @@ All of these settings can be set with [URL parameters](/docs/url-params#base-url
 {:toc}
 
 ## Options
+### Language
+The Language radio buttons let you change the language of the site. Online Web Clock uses [i18next](https://www.i18next.com/) for internationalization and localization.
+
+![A screenshot of the Language radio buttons.](/assets/images/docs-Features/displayoptions/language.png)
+
+Currently, only English and Spanish have been added, but more languages are planned for future releases. If you would like to contribute a translation, feel free to make a pull request! ([GitHub](https://github.com/iKarTehFox/web-clock)).
+
 ### Menu Theme
-The Menu Theme radio buttons allow you to change the theme of the menu panel, either to Light, Dark, or Midnight. Theme functionality is included with Bootstrap, and can be changed with the `data-bs-theme` attribute.
+The Menu Theme dropdown menu allow you to change the theme of the menu panel, either to Light, Dark, Midnight, or AMOLED. Theme functionality is included with Bootstrap and is modified with the `data-bs-theme` attribute.
 
-![A screenshot of the Menu Theme radio buttons.](/assets/images/docs-Features/displayoptions/menutheme.png)
+![A screenshot of the Menu Theme dropdown menu.](/assets/images/docs-Features/displayoptions/menutheme.png)
 
-| Light theme | Dark theme | Midnight theme |
-| --- | --- | --- |
-| ![A screenshot of the page with Light theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-light.png) | ![A screenshot of the page with Dark theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-dark.png) | ![A screenshot of the page with Midnight theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-midnight.png) |
+| Light theme | Dark theme | Midnight theme | AMOLED theme |
+| --- | --- | --- | --- |
+| ![A screenshot of the page with Light theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-light.png) | ![A screenshot of the page with Dark theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-dark.png) | ![A screenshot of the page with Midnight theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-midnight.png) | ![A screenshot of the page with AMOLED theme enabled.](/assets/images/docs-Features/displayoptions/menutheme-amoled.png) |
 
 {: .note }
-The theme is automatically set based on your system's color scheme.
+The theme is automatically set based on your system's color scheme on page load. You can also set it with [URL Parameters](/docs/url-params#base-url-parameters).
 
 Here's how the `data-bs-theme` attribute gets modified. For modularity purposes, the theme is applied on a per-container basis.
 
@@ -116,7 +123,15 @@ If you don't like the dynamic tab title, where it updates along with the time, y
 | --- | --- |
 | ![A screenshot of the page with Tab Title enabled.](/assets/images/docs-Features/displayoptions/tabtitle-on.png) | ![A screenshot of the page with Tab Title disabled.](/assets/images/docs-Features/displayoptions/tabtitle-off.png) |
 
-## Fullscreen
+### Interactions
+The Interactions section includes options that change how you interact with Online Web Clock.
+
+![A screenshot of the Interactions section.](/assets/images/docs-Features/displayoptions/interactions.png)
+
+#### Auto-hide Mouse
+This checkbox toggles the automatic hiding of your mouse cursor after 10 seconds of inactivity. Moving your mouse will make it reappear. The mouse cursor is only hidden when it is over the clock area/background, not over panels, cards, widgets, or other UI elements.
+
+### Fullscreen
 This toggle button switches between fullscreen and windowed mode.
 
 ![A screenshot of the Fullscreen toggle button.](/assets/images/docs-Features/displayoptions/fullscreen.png)

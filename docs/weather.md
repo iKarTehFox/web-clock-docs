@@ -47,10 +47,10 @@ You have the option to display the weather using the metric or imperial system, 
 
 ![A screenshot of the Units radio buttons.](/assets/images/docs-Features/weather/units.png)
 
+Once enabled, the weather widget will update once every 15 minutes.
+
 {: .tip-title }
 > Fun fact
-> 
-> Once enabled, the weather widget will update once every 15 minutes.
 > 
 > If left to run continuously for a month (30 days), the API will only have been called 2,880 times, which is significantly less than the 1,000,000 API monthly call limit for free accounts.
 
@@ -58,3 +58,7 @@ You have the option to display the weather using the metric or imperial system, 
 With this button toggle, you can drag the weather widget to a different position on the page. You can also reset its position to the default.
 
 ![A screenshot of the Widget Position options.](/assets/images/docs-Features/weather/widgetposition.png)
+
+After dragging the weather widget to a different position, an "XY" position label will appear in the menu to let you know the current coordinates of the widget, making it easier to set with [URL Parameters](/docs/url-params#weather-widget-parameters).
+
+![A screenshot of the Widget Position XY coordinates label.](/assets/images/docs-Features/weather/widgetposition-xy.png)
