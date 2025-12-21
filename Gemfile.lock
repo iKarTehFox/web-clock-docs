@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/eventmachine/eventmachine.git
+  revision: 9cb13a8a62363df5ebcc414169a3deb2c1608528
+  tag: v1.2.7
+  specs:
+    eventmachine (1.2.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,7 +18,6 @@ GEM
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
-    eventmachine (1.2.7)
     ffi (1.17.2-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     google-protobuf (4.33.2-x64-mingw-ucrt)
@@ -84,6 +90,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  eventmachine (= 1.2.7)!
   google-protobuf (>= 4.28.2)
   jekyll (~> 4.4.1)
   just-the-docs (= 0.10.1)
