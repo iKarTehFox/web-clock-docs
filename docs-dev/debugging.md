@@ -2,7 +2,7 @@
 title: Debugging
 layout: default
 parent: Features (Development)
-nav_order: 1
+nav_order: 2
 ---
 # Debugging
 {: .no_toc}
@@ -66,16 +66,18 @@ The "Extract BG image" button extracts the current background image and shows it
 ![A screenshot of the Settings "Extract BG image" Bootstrap modal.](/assets/images/docs-Development/debugging/extractbg.png)
 
 ### Toasts
-These buttons let you test the toast notifications and their different themes.
+These buttons let you test the toast popups, their themes, and their durations.
 
 ![A screenshot of the Toasts debugging options.](/assets/images/docs-Development/debugging/toasts.png)
 
-When clicked, the buttons will spawn a Toastify toast with the corresponding theme. The default duration of 3 seconds is used.
+When clicked, the buttons will spawn a Bootstrap toast with the corresponding theme and/or duration. The default duration of 3 seconds is used for the theme buttons, while the duration buttons use the currently set menu theme.
 
 ![A screenshot of the Toasts debugging options.](/assets/images/docs-Development/debugging/toast.png)
 
 ### UI
 The "Remove clock container" button deletes the entire clock container from the DOM. This is useful for taking clean screenshots of the clock without the time showing (such as on these documentation pages!).
+
+The "FloatingWindow Init" button spawns an example floating window. It contains two tabs and a sample content body.
 
 ![A screenshot of the UI debugging options.](/assets/images/docs-Development/debugging/ui.png)
 

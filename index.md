@@ -22,9 +22,11 @@ See what's new for Online Web Clock:
 
 ### v1.8.1 - **Bountiful Update QF1 (18 December, 2025)**
 #### 🔧 Changes
-- Add missing `bsmodal.button.reset` and `toasts.importexport.backupreset` keys 065508c65f0b54de7f03be574a0a54186dabc057
-- Clear `onlinewebclock-autoload-preference` localStorage key in multiple parts of `importExport.ts` 176d40aaf02f2417653d67b0ccfe8cb66bd6acac
+- Add missing `bsmodal.button.reset` and `toasts.importexport.backupreset` keys
+- Clear `onlinewebclock-autoload-preference` localStorage key in multiple parts of `importExport.ts`
   - Also add boolean parameter to `importFromLS()` function to avoid displaying import toast in certain cases
+
+Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.8.1))
 
 ### v1.8.0 - **Bountiful Update (18 December, 2025)**
 #### 🆕 Additions
@@ -62,7 +64,7 @@ See what's new for Online Web Clock:
 - Fix broken toast titles for weather section
 - "Read the Docs" button renamed to "Documentation", now opens in new tab
 
-Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.7.0))
+Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.8.0))
 
 <hr>
 

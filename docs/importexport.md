@@ -6,7 +6,7 @@ nav_order: 8
 ---
 # Import and Export
 {: .no_toc }
-The Import/Export section of the menu lets you import and export your currently applied settings. You can also choose built-in presets to import.
+The Import/Export section of the menu lets you load and save your currently applied settings. You can also choose built-in presets to import.
 
 ![A screenshot of the import and export menu options.](/assets/images/docs-Features/importexport/importexport.png)
 
@@ -17,7 +17,7 @@ The Import/Export section of the menu lets you import and export your currently 
 
 ## Options
 ### Import settings
-There are a few methods of uploading your settings. You can upload directly from a JSON file, scan a QR code, paste the raw JSON data into a text field, or re-import your saved settings from localStorage.
+There are a few methods of importing your settings. You can upload directly from a JSON file, scan a QR code, paste the raw JSON data into a text field, or re-import your saved settings from localStorage.
 
 ![A screenshot of the import upload button and text field upload form.](/assets/images/docs-Features/importexport/import.png)
 
@@ -50,7 +50,7 @@ Below is a table of the top-level keys in the settings JSON object:
 | Key | Valid values | Description |
 | --- | --- | --- |
 | exportTimestamp | `string` | The timestamp of when the settings were exported |
-| version | `10` | Hardcoded version number. Do not change. |
+| version | `v1.X.X` | Hardcoded version number. Do not change. |
 
 #### clockConfig key
 Below is a table of the subkeys of the `clockConfig` object and their valid values.
@@ -59,7 +59,7 @@ Below is a table of the subkeys of the `clockConfig` object and their valid valu
 | --- | --- | --- |
 | clockDisplay | `binary`, `octal`, `decimal`, `hexa`, `emoji`, `roman`, `words`, `unixmillis`, `unixsec`, `unixcountdown`, `se_valentines`, `se_christmas`, `se_newyears`, `ii_christmas`, `ii_weekend`, `ii_leapyear` | Clock display system |
 | secondsVis | `sviD`, `sviN` | Whether to display the seconds |
-| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format option |
+| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format |
 | dateAlign | `dpoL`, `dpoC`, `dpoR` | Alignment of the date |
 | borderMode | `btyD`, `btyR`, `btyB` | Type of border, such as bottom, box, or disabled |
 | borderStyle | `solid`, `dashed`, `dotted`, `double` | Style of the border |
@@ -76,8 +76,8 @@ Below is a table of the subkeys of the `fontConfig` object and their valid value
 | Subkey | Valid values | Description |
 | --- | --- | --- |
 | fontFamily | **unset**, \<Font name\> | Font family to set |
-| fontStyle | `fsR`, `fsI` | Font style (Normal or Italic) |
-| fontWeight | `fweL`, `fweN`, `fweB` | Font weight (Light, Normal, or Bold) |
+| fontStyle | `fsR`, `fsI` | Font style |
+| fontWeight | `fweL`, `fweN`, `fweB` | Font weight |
 | fontSize | `6vw`, `8vw`, `10vw`, `12vw`, `14vw`, `18vw` | Font size |
 | dropShadow | \<Integer from 0 to 10\> | Size of the drop shadow |
 | strokeWidth | \<Integer from 1 to 5\> | Width of the stroke |
@@ -111,10 +111,10 @@ Below is a table of the subkeys of the `timezoneWindows` object and their valid 
 | --- | --- | --- |
 | timezone | \<Timezone IANA string\> | Timezone identifier |
 | clockMode | `0`, `1` | Time display mode (12-hour or 24-hour) |
-| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format option |
+| dateFormat | `dfLocNumDate`, `dfLocAbbMon`, `dfLocFullMon`, `dfLocFullDate`, `dfStaFullMonthDay`, `dfStaAbbMonthDay`, `dfStaDayFullMonth`, `dfStaDayAbbMonth`, `dfStaFullMonthYear`, `dfStaYear`, `dfStaQuarterYear`, `dfStaDayOfYear`, `dfStaWeekDay`, `dfOff`, **unset** | Date display format |
 | fontFamily | **unset**, \<Font name\> | Font family to set |
-| fontStyle | `normal`, `italic` | Font style (Normal or Italic) |
-| fontWeight | `light`, `normal`, `bold` | Font weight (Light, Normal, or Bold) |
+| fontStyle | `normal`, `italic` | Font style |
+| fontWeight | `light`, `normal`, `bold` | Font weight |
 | x | \<Integer\> | X position offset |
 | y | \<Integer\> | Y position offset |
 | width | \<Integer\> | Width of the window |
