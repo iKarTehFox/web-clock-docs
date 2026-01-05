@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem "jekyll", "~> 4.4.1" # Jekyll base
-gem "just-the-docs", "0.10.1" # Just the Docs theme
+gem "just-the-docs", "0.11.1" # Just the Docs theme
 
 gem "webrick", ">= 1.8.2" # For Jekyll
 gem "google-protobuf", ">= 4.28.2" # For Protobuf
