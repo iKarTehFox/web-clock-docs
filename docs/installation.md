@@ -19,7 +19,7 @@ This page will guide you through the installation process. You may choose to man
 - Basic CLI knowledge
 
 {: .important }
-Ensure you have **at least** Node.js installed on your system. Regardless of whether you choose to clone the repository or download a pre-built release, Node.js is required to serve the website locally.
+Ensure you have **at least** Node.js installed on your system. Regardless of whether you choose to clone the repository or download a pre-built release, Node.js's `http-server` or any dedicated HTTP server is required to serve the website locally.
 
 ## Downloading the website
 
