@@ -66,8 +66,8 @@ Ensure you have a tool to serve the website (e.g. Node.js `http-server`, Python 
 
 With Node.js, you can use the `http-server` command to serve the website.
 1. Install `http-server` globally by running `npm install -g http-server` (use `sudo` if necessary).
-- **If you built from source**: Run `http-server -p 80 ./dist` to serve the built website at ./dist on port 80.
-- **If you downloaded a release**: Run `http-server -p 80 ./` to serve the website at the current directory on port 80.
+- **If you built from source**: Run `http-server -p 80 ./dist` to serve the built website in ./dist on port 80.
+- **If you downloaded a release**: Run `http-server -p 80 ./` to serve the website in the current directory on port 80.
 
     ![A screenshot of the http-server command running in a Terminal.](/assets/images/docs-Installation/http-server-example.png)
 
