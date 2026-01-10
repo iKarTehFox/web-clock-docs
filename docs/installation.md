@@ -18,6 +18,9 @@ This page will guide you through the installation process. You may choose to man
 - Git
 - Basic CLI knowledge
 
+{: .important }
+Ensure you have **at least** Node.js installed on your system. Regardless of whether you choose to clone the repository or download a pre-built release, Node.js is required to serve the website locally.
+
 ## Downloading the website
 
 ### Cloning the repository (Method 1)
@@ -62,13 +65,13 @@ After you have downloaded or built the website, you can now serve it locally.
 Ensure you have a tool to serve the website (e.g. Node.js `http-server`, Python `http.server`, etc.). Double-clicking the `index.html` file will **<span style="color: red;">NOT</span>** work!
 
 With Node.js, you can use the `http-server` command to serve the website.
-1. Install `http-server` by running `npm install -g http-server`
-2. Run `http-server -p 80 ./dist` to serve the website on port 80 (or whatever port you want)
- - If you downloaded a pre-built version, simply run `http-server -p 80` instead.
+1. Install `http-server` globally by running `npm install -g http-server` (use `sudo` if necessary).
+- **If you built from source**: Run `http-server -p 80 ./dist` to serve the built website at ./dist on port 80.
+- **If you downloaded a release**: Run `http-server -p 80 ./` to serve the website at the current directory on port 80.
 
     ![A screenshot of the http-server command running in a Terminal.](/assets/images/docs-Installation/http-server-example.png)
 
-3. Open your browser and go to `http://127.0.0.1` to view the website.
+2. Open your browser and go to `http://127.0.0.1` to view the website.
  - Don't forget to include the port number `http://IP:PORT` if you're using a port other than 80.
 
     ![A screenshot of the website running in a browser.](/assets/images/docs-Installation/website-page.png)
