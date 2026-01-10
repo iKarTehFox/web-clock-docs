@@ -20,6 +20,13 @@ Welcome to the Online Web Clock docs!
 ## Latest Updates
 See what's new for Online Web Clock:
 
+### v1.8.2 - **Bountiful Update QF2 (24 December, 2025)**
+#### 🔧 Changes
+- Use `setSecondsVis()` function to simplify code in `time.ts`
+  - I also hope this fixes an edge-case bug where the second colon isn't reenabled
+
+Check out this update! ([GitHub](https://github.com/iKarTehFox/web-clock/releases/tag/v1.8.2))
+
 ### v1.8.1 - **Bountiful Update QF1 (18 December, 2025)**
 #### 🔧 Changes
 - Add missing `bsmodal.button.reset` and `toasts.importexport.backupreset` keys
